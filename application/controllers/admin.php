@@ -658,7 +658,6 @@ class Admin extends Controller {
     }
 
     function angsuran() {
-        $this->load->model('kopma');
         if ($this->kopma->get_angsuran()) {
             $data['angsuran'] = $this->kopma->get_angsuran();
         } else {

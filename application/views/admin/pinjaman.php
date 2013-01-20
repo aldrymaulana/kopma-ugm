@@ -12,6 +12,7 @@
         <th><center>NIA</center></th>
         <th><center>Nama</center></th>
         <th><center>Pokok Pinjaman</center></th>
+        <th><center>Sisa Pinjaman</center></th>
         <th><center>Tanggal Transaksi</center></th>
         </tr>
         </thead>
@@ -23,6 +24,7 @@
             <td><center><?php echo $pnj->nia ?></center></td>
             <td><center><?php echo $pnj->nama ?></center></td>
             <td><center><?php echo $pnj->value ?></center></td>
+            <td><center><?php if($pnj->sisa <= 0){echo 'Sudah Lunas';}else{echo $pnj->sisa;} ?></center></td>
             <td><center><?php echo $pnj->tanggal ?></center></td>
             </tr>
             <?php $no++ ?>
