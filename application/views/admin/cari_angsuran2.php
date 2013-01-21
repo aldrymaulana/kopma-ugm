@@ -20,15 +20,19 @@
                 <tr>
                     <td><center><?php echo $agt->nia ?></center></td>
             <td><center><?php echo $agt->nama ?></center></td>
+            <td><center><?php echo $agt->pokok ?></center></td>
+            <td><center><?php if ($agt->mengansur == 0) ?> 
             <td><center><?php echo $agt->value ?></center></td>
             <td><center><?php
             if ($agt->sisa == 0) {
                 echo 'Lunas';
             } else {
-                echo $agt->sisa;
+                echo $agt->mengansur;
             }
             ?></center></td>
             <td><center>
+                <?php if($agt->mengansur!=0){echo anchor('admin/form_angsuran/'.$agt->id_pinjaman,'Bayar angsuran');}?>
+
             <?php if ($agt->sisa != 0) {
                 echo anchor('admin/form_angsuran/' . $agt->id_pinjaman, 'Bayar angsuran');
             } ?>
