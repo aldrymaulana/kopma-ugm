@@ -14,7 +14,6 @@
                    <label>Status</label><?php
             $option = array(
                 '0' => 'Pilih Status',
-                '1' => 'Admin',
                 '2' => 'Petugas',
             );
             echo form_dropdown('status', $option, '0');

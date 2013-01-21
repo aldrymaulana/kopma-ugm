@@ -232,7 +232,7 @@ class Kopma extends Model {
     function cari_angsuran() {
         $c = $this->input->post('cari');
         $this->db->like('nia', $c);
-        $query = $this->db->get('anggota');
+        $query = $this->db->get('vangsuran');
         if ($query->num_rows > 0) {
             return $query->result();
         }
@@ -311,6 +311,15 @@ class Kopma extends Model {
             return $data->result();
         }
     }
+    
+    function toExcelAll(){
+       $get= $this->db->get('vanggota');
+        if($get->num_rows > 0){
+            return $get->result();
+        }
+    }
+    
+    
 
     function getUser($c) {
         $this->db->where('nia', $c);
