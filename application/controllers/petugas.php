@@ -875,6 +875,15 @@ class Petugas extends Controller {
         $this->load->view('template/footer');
     }
 
+    //function to get the data from tb_book
+
+//function to export to excel
+function toExcelAll() {
+$data['hasil']=$this->kopma->ToExcelAll();
+$this->load->view('petugas/excel',$hasil);
+}
+
+    
 }
 
 ?>

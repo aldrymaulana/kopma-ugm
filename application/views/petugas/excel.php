@@ -1,16 +1,12 @@
+<?php
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=exceldata.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <div class="span10">
     <center><h2>Data Anggota</h2></center>
-    <div class="form-search">
-        <?php echo form_open('petugas/cari_simpanan') ?> 
-        <input class="input-medium search-query text" placeholder="Masukkan NIA"  name="cari">
-        <button type="submit" class="btn">Search</button>
-        <?php echo form_close(); ?>
-    </div> 
-    <?php
-    echo form_open('petugas/anggota_tambah', 'tambah anggota', 'class="well"');
-    ?>
-    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah Anggota</button>
-    <?php echo form_close() ?>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -43,6 +39,5 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href='toExcelAll'><span style='color:green;'>Export All Data</span></a>
         <?php echo $this->pagination->create_links(); ?>
 </div>

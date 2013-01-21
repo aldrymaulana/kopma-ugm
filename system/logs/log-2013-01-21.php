@@ -119,3 +119,15 @@ ERROR - 2013-01-21 11:28:59 --> Severity: Notice  --> Undefined variable: id D:\
 ERROR - 2013-01-21 11:28:59 --> Severity: Notice  --> Array to string conversion D:\xampp\htdocs\svn\application\controllers\admin.php 591
 ERROR - 2013-01-21 11:31:56 --> Severity: Notice  --> Undefined variable: c D:\xampp\htdocs\svn\application\controllers\admin.php 615
 ERROR - 2013-01-21 11:32:56 --> Severity: Notice  --> Undefined variable: c D:\xampp\htdocs\svn\application\controllers\admin.php 615
+ERROR - 2013-01-21 12:03:08 --> Severity: Notice  --> Undefined property: stdClass::$value D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 23
+ERROR - 2013-01-21 12:03:08 --> Severity: Notice  --> Undefined property: stdClass::$sisa D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 24
+ERROR - 2013-01-21 12:03:09 --> Severity: Notice  --> Undefined property: stdClass::$id_pinjaman D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 26
+ERROR - 2013-01-21 12:06:22 --> Severity: Notice  --> Undefined property: stdClass::$pokok D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 23
+ERROR - 2013-01-21 12:06:22 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 24
+ERROR - 2013-01-21 12:06:22 --> Severity: Notice  --> Undefined property: stdClass::$id_pinjaman D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 26
+ERROR - 2013-01-21 12:06:52 --> Severity: Notice  --> Undefined property: stdClass::$pokok D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 23
+ERROR - 2013-01-21 12:06:52 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 24
+ERROR - 2013-01-21 12:06:52 --> Severity: Notice  --> Undefined property: stdClass::$id_pinjaman D:\xampp\htdocs\svn\application\views\petugas\cari_angsuran2.php 26
+ERROR - 2013-01-21 13:14:17 --> Severity: Notice  --> Undefined variable: hasil D:\xampp\htdocs\svn\application\controllers\petugas.php 883
+ERROR - 2013-01-21 13:14:18 --> Severity: Notice  --> Undefined variable: hasil D:\xampp\htdocs\svn\application\views\petugas\excel.php 24
+ERROR - 2013-01-21 13:14:18 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\svn\application\views\petugas\excel.php 24

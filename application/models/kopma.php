@@ -304,5 +304,12 @@ class Kopma extends Model {
         $this->db->update('pinjaman', $set);
     }
 
+    function ToExcelAll() {
+        $get = $this->db->get('vanggota');
+        if ($get->num_rows > 0) {
+            return $get->result();
+        }
+    }
+    
 }
 ?>  
