@@ -21,13 +21,17 @@
                     <td><center><?php echo $agt->nia ?></center></td>
             <td><center><?php echo $agt->nama ?></center></td>
             <td><center><?php echo $agt->value ?></center></td>
-            <td><center><?php if ($agt->sisa == 0) {
+            <td><center><?php
+            if ($agt->sisa == 0) {
                 echo 'Lunas';
             } else {
                 echo $agt->sisa;
-            } ?></center></td>
+            }
+            ?></center></td>
             <td><center>
-                <?php if($agt->sisa!=0){echo anchor('admin/form_angsuran/'.$agt->id_pinjaman,'Bayar angsuran');}?>
+            <?php if ($agt->sisa != 0) {
+                echo anchor('admin/form_angsuran/' . $agt->id_pinjaman, 'Bayar angsuran');
+            } ?>
             </center></td>
             </tr>
 <?php endforeach; ?>

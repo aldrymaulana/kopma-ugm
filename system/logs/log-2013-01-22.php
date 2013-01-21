@@ -37,3 +37,8 @@ ERROR - 2013-01-22 07:01:13 --> Severity: Notice  --> Undefined index: login E:\
 ERROR - 2013-01-22 07:01:48 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
 ERROR - 2013-01-22 07:01:53 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
 ERROR - 2013-01-22 07:02:16 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
+ERROR - 2013-01-22 07:05:07 --> Severity: Notice  --> Undefined index: id_user E:\dump\kopma-ugm\application\controllers\detail.php 14
+ERROR - 2013-01-22 07:05:07 --> 404 Page Not Found --> admin/logout
+ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$value E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 23
+ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 24
+ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 30

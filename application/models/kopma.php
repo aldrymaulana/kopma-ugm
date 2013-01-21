@@ -170,7 +170,7 @@ class Kopma extends Model {
     function cari_simpanan() {
         $c = $this->input->post('cari');
         $this->db->like('nia', $c);
-        $query = $this->db->get('anggota');
+        $query = $this->db->get('vpinjaman');
         if ($query->num_rows > 0) {
             return $query->result();
         }
