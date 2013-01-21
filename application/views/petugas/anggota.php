@@ -43,6 +43,6 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href='toExcelAll'><span style='color:green;'>Export All Data</span></a>
+    <a href='toExcelAll' ><span style='color:green;'>Export All Data</span></a>
         <?php echo $this->pagination->create_links(); ?>
 </div>

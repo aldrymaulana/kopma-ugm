@@ -56,5 +56,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-        <a href='toExcelAll'><span style='color:green;'>Export All Data</span></a>
+        <a href='toExcelAll'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div>
