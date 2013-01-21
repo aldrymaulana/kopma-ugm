@@ -1,3 +1,10 @@
+<?php
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=exceldataAnggota.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <div class="span10">
     <center><h2>Laporan Data Anggota</h2></center>
     <table class="table table-striped table-bordered table-condensed">
@@ -30,7 +37,7 @@
         <tbody>
             <?php foreach ($hasil as $agt) : ?>
                 <tr>
-                    <td><a href="<?php echo site_url() ?>/admin/detail_anggota/<?php echo $agt->nia ?>"><?php echo $agt->nia ?></a></td>
+                    <td><?php echo $agt->nia ?></a></td>
                     <td><?php echo $agt->no_ktp ?></td>
                     <td><?php echo $agt->nama ?></td>
                     <td><?php echo $agt->tempat_lahir ?></td>
@@ -56,5 +63,4 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-        <a href='toExcelAll'><span style='color:green;'>Export All Data</span></a>
 </div>

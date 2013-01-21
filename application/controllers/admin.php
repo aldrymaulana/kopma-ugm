@@ -330,13 +330,12 @@ class Admin extends Controller {
             $this->load->view('template/foot');
         }
     }
-    
-    
+
     function cari_simpanan() {
         $id = $this->input->post('search');
-        if($data['hasil'] = $this->kopma->cari_simpanan($id)){
+        if ($data['hasil'] = $this->kopma->cari_simpanan($id)) {
             $data['hasil'] = $this->kopma->cari_simpanan($id);
-        }else{
+        } else {
             $data['result'] = array();
         }
         $this->load->view('template/header');
@@ -344,9 +343,6 @@ class Admin extends Controller {
         $this->load->view('admin/cari', $data);
         $this->load->view('template/footer');
     }
-    
-    
-    
 
     function simpanan_insert() {
         $this->form_validation->set_rules('nia', 'NIA', 'required');
@@ -900,7 +896,19 @@ class Admin extends Controller {
         $this->parser->parse('admin/alert', $data);
         $this->load->view('template/footer');
     }
-
+  
+    function toExcelAll() {
+     if($this->kopma->ToExcelAll()){
+        $data['hasil']=  $this->kopma->ToExcelAll();
+     }else{
+             $data['hasil']=  array();
+     }
+   
+        $this->load->view('admin/excel_anggota', $data);
+   
+     }
+     
+     
     function tolakPinjaman() {
         $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
         $this->load->view('template/header');
@@ -910,5 +918,6 @@ class Admin extends Controller {
     }
 
 }
+
 
 ?>
