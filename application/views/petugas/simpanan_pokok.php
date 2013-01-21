@@ -1,4 +1,4 @@
-<div class="hero-unit">
+<div class="span10">
     <center><h2>Simpanan Pokok</h2></center>
     <br>
     <table class="table table-striped table-bordered table-condensed">
@@ -20,9 +20,9 @@
 
             <td>
             <center> <?php
-            echo anchor('admin/jenis_edit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
+            echo anchor('petugas/jenis_edit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
             echo ' | ';
-            echo anchor('admin/jenis_hapus/' . $simp->id_jenis_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
+            echo anchor('petugas/jenis_hapus/' . $simp->id_jenis_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
                 ?></center>
             </td>
             </tr>

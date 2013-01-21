@@ -1,10 +1,4 @@
 <div class="hero-unit">
-
-    <?php
-    echo form_open('admin/user_tambah', 'tambah user', 'class="well"');
-    ?>
-    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah User</button>
-    <?php echo form_close() ?>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>

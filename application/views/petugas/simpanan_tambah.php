@@ -3,7 +3,7 @@
     <div class="span6">
         <div class="row-fluid">
             <div class="well">
-<?php echo form_open('admin/simpanan_tambah') ?>      
+<?php echo form_open('petugas/simpanan_tambah') ?>      
 
             <label>Nia</label><input class="input-xlarge"  value="<?php echo $nia[0]->nia ?>" name="nia">
                    <label>Nama</label><input class="input-xlarge"  placeholder="Nama..." <? echo form_input('password'); ?>

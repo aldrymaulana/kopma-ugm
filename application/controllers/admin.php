@@ -306,13 +306,47 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
+    function result() {
+        $this->form_validation->set_rules('search', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            redirect('petugas/penduduk');
+        } else {
+            $data['title'] = 'Hasil';
+            $data['username'] = $this->session->userdata('username');
+            $id = $this->input->post('search');
+            if ($data['isi'] = $this->simades->get_sys()) {
+                $data['isi'] = $this->simades->get_sys();
+            } else {
+                $data['isi'] = array();
+            }
+            if ($data['result'] = $this->simades->cari($id)) {
+                $data['result'] = $this->simades->cari($id);
+            } else {
+                $data['result'] = array();
+            }
+            $this->load->view('template/head', $data);
+            $this->load->view('petugas/menu');
+            $this->load->view('petugas/result', $data);
+            $this->load->view('template/foot');
+        }
+    }
+    
+    
     function cari_simpanan() {
-        $data['hasil'] = $this->kopma->cari_simpanan();
+        $id = $this->input->post('search');
+        if($data['hasil'] = $this->kopma->cari_simpanan($id)){
+            $data['hasil'] = $this->kopma->cari_simpanan($id);
+        }else{
+            $data['result'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/cari', $data);
         $this->load->view('template/footer');
     }
+    
+    
+    
 
     function simpanan_insert() {
         $this->form_validation->set_rules('nia', 'NIA', 'required');

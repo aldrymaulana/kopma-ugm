@@ -219,3 +219,11 @@ ERROR - 2013-01-20 22:18:59 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-01-20 22:20:48 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\yudha\application\views\admin\pinjaman.php 27
 ERROR - 2013-01-20 22:20:51 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\yudha\application\views\admin\pinjaman.php 27
 ERROR - 2013-01-20 22:21:40 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\yudha\application\views\admin\pinjaman.php 27
+ERROR - 2013-01-20 17:29:35 --> Severity: Notice  --> Undefined index: id_user D:\xampp\htdocs\svn\application\controllers\detail.php 14
+ERROR - 2013-01-20 17:29:35 --> 404 Page Not Found --> admin/logout
+ERROR - 2013-01-20 17:29:48 --> Severity: Warning  --> Missing argument 1 for Kopma::cari_simpanan(), called in D:\xampp\htdocs\svn\application\controllers\admin.php on line 310 and defined D:\xampp\htdocs\svn\application\models\kopma.php 170
+ERROR - 2013-01-20 17:29:48 --> Severity: Notice  --> Undefined variable: c D:\xampp\htdocs\svn\application\models\kopma.php 171
+ERROR - 2013-01-20 17:29:48 --> Severity: Notice  --> Undefined property: stdClass::$status D:\xampp\htdocs\svn\application\views\admin\cari.php 24
+ERROR - 2013-01-20 17:29:48 --> Severity: Notice  --> Undefined property: stdClass::$jenis_anggota D:\xampp\htdocs\svn\application\views\admin\cari.php 25
+ERROR - 2013-01-20 17:31:45 --> 404 Page Not Found --> admin/jenis_edit
+ERROR - 2013-01-20 17:31:52 --> 404 Page Not Found --> admin/jenis_edit

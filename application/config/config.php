@@ -14,7 +14,7 @@ if (!defined('BASEPATH'))
   |	http://example.com/
   |
  */
-$config['base_url'] = "http://localhost/kopma";
+$config['base_url'] = "http://localhost/svn";
 
 /*
   |--------------------------------------------------------------------------

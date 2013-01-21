@@ -4,7 +4,7 @@
         <div class="row-fluid">
             <div class="well">
                 <div class="form-search">
-                    <?php echo form_open('petugas/cari_simpanan') ?> 
+                    <?php echo form_open('petugas/cari_angsuran') ?> 
                     <input type="text" placeholder="Masukkan NIA" class="input-medium search-query" name="cari">
                     <button type="submit" class="btn">Search</button>
                     <?php echo form_close(); ?>

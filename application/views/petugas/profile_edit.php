@@ -10,7 +10,7 @@
             <label>Password :</label><input class="input-xlarge"  type="text" value=" <?php echo  $user[0]->password ?>" name="password">
             <label>Nama :</label><input class="input-xlarge"  type="text" value="<?php echo  $user[0]->nama ?>" name="nama"> 
             <label>No Hp </label><input class="input-xlarge"  type="text" value="<?php echo  $user[0]->no_hp ?>" name="no_hp">
-            <label>Status</label><input class="input-xlarge" readonly="readonly"  type="text" value="<?php echo $user[0]->status  ?>" name="status">
+            <label>Status</label><input class="input-xlarge"  type="text" readonly="readonly" value="<?php echo $user[0]->status  ?>" name="status">
             <br>
             <br>
             <button class="btn btn-primary" <?php echo form_submit('submit', 'Perbaharui'); ?><i class="icon-plus icon-white"></i>Perbaharui</button>            
