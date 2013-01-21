@@ -8,11 +8,11 @@
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-                <th><center>Nia</center></th>
+                <th><center>NIA</center></th>
         <th><center>Nama</center></th>
         <th><center>Besar pinjaman</center></th>
         <th><center>Sisa</center></th>
-        <th><center>Pinjaman</center></th>
+        <th><center>Pembayaran</center></th>
         </tr>
         </thead>
         <tbody>
@@ -21,12 +21,16 @@
                     <td><center><?php echo $agt->nia ?></center></td>
             <td><center><?php echo $agt->nama ?></center></td>
             <td><center><?php echo $agt->value ?></center></td>
-            <td><center><?php echo $agt->sisa ?></center></td>
+            <td><center><?php if ($agt->sisa == 0) {
+                echo 'Lunas';
+            } else {
+                echo $agt->sisa;
+            } ?></center></td>
             <td><center>
-                <a href="<?php echo site_url() ?>/admin/form_angsuran/<?php echo $agt->id_pinjaman ?>">Tambah Angsuran</a>
+                <?php if($agt->sisa!=0){echo anchor('admin/form_angsuran/'.$agt->id_pinjaman,'Bayar angsuran');}?>
             </center></td>
             </tr>
-        <?php endforeach; ?>
+<?php endforeach; ?>
         </tbody>
     </table>
 </div><!--/row-->

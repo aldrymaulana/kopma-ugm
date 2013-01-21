@@ -616,6 +616,20 @@ class Admin extends Controller {
         if ($data['hasil'] == null) {
             redirect('admin/noResult');
         } else {
+            $nia = $this->input->post('cari');
+            $cek = $this->kopma->cekPinjaman($nia);
+            print_r($cek);
+            if ($cek > 0) {
+                $tagihan = $cek[0]->sisa;
+                if ($tagihan != 0) {
+                    redirect('admin/tolakPinjaman');
+                } else {
+                    $this->load->view('template/header');
+                    $this->load->view('admin/menu');
+                    $this->load->view('admin/cari2', $data);
+                    $this->load->view('template/footer');
+                }
+            }
             $this->load->view('template/header');
             $this->load->view('admin/menu');
             $this->load->view('admin/cari2', $data);
@@ -663,21 +677,6 @@ class Admin extends Controller {
         $this->kopma->pinjaman_hapus($id);
         redirect('admin/pinjaman');
     }
-
-//    
-//    function pinjaman_form() {
-//        $nia = $this->uri->segment(3);
-//        if ($data['nia'] = $this->kopma->get_anggota_nia($nia)) {
-//            $data['nia'] = $this->kopma->get_anggota_nia($nia);
-//        } else {
-//            $data['nia'] = null;
-//        }
-//        $data['username'] = $this->session->userdata('username');
-//        $this->load->view('template/header');
-//        $this->load->view('template/menu');
-//        $this->load->view('admin/simpanan_form_wajib', $data);
-//        $this->load->view('template/footer');
-//    }
 
     function form_pinjaman($nia) {
         if ($this->kopma->get_anggota_nia($nia)) {
@@ -896,6 +895,14 @@ class Admin extends Controller {
 
     function lunas() {
         $data['isi'] = '<div class="alert alert-info">Pinjaman user ini telah Lunas.</div>';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
+
+    function tolakPinjaman() {
+        $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->parser->parse('admin/alert', $data);
