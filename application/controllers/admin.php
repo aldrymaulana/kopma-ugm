@@ -700,15 +700,20 @@ class Admin extends Controller {
 
     function cari_angsuran() {
         $c = $this->input->post('cari');
-        if ($this->kopma->cari_simpanan($c)) {
-            $data['hasil'] = $this->kopma->cari_simpanan($c);
+        $isi = $this->kopma->getUser($c);
+        if ($isi == 0) {
+            redirect('admin/noResult');
         } else {
-            $data['hasil'] = array();
+            if ($this->kopma->cari_simpanan($c)) {
+                $data['hasil'] = $this->kopma->cari_simpanan($c);
+            } else {
+                $data['hasil'] = array();
+            }
+            $this->load->view('template/header');
+            $this->load->view('admin/menu');
+            $this->load->view('admin/cari_angsuran2', $data);
+            $this->load->view('template/footer');
         }
-        $this->load->view('template/header');
-        $this->load->view('admin/menu');
-        $this->load->view('admin/cari_angsuran2', $data);
-        $this->load->view('template/footer');
     }
 
     function cari_angsuran_form() {
@@ -896,19 +901,17 @@ class Admin extends Controller {
         $this->parser->parse('admin/alert', $data);
         $this->load->view('template/footer');
     }
-  
+
     function toExcelAll() {
-     if($this->kopma->ToExcelAll()){
-        $data['hasil']=  $this->kopma->ToExcelAll();
-     }else{
-             $data['hasil']=  array();
-     }
-   
+        if ($this->kopma->ToExcelAll()) {
+            $data['hasil'] = $this->kopma->ToExcelAll();
+        } else {
+            $data['hasil'] = array();
+        }
+
         $this->load->view('admin/excel_anggota', $data);
-   
-     }
-     
-     
+    }
+
     function tolakPinjaman() {
         $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
         $this->load->view('template/header');
@@ -918,6 +921,5 @@ class Admin extends Controller {
     }
 
 }
-
 
 ?>

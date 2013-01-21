@@ -312,5 +312,13 @@ class Kopma extends Model {
         }
     }
 
+    function getUser($c) {
+        $this->db->where('nia', $c);
+        $data = $this->db->get('vpinjaman');
+        if ($data->num_rows > 0) {
+            return $data->num_rows();
+        }
+    }
+
 }
 ?>  
