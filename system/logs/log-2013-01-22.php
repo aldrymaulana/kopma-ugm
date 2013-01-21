@@ -31,3 +31,9 @@ ERROR - 2013-01-22 03:35:17 --> Severity: Warning  --> Missing argument 1 for Ko
 ERROR - 2013-01-22 03:35:17 --> Severity: Notice  --> Undefined variable: c E:\dump\kopma-ugm\application\models\kopma.php 171
 ERROR - 2013-01-22 03:35:17 --> Severity: Notice  --> Undefined property: stdClass::$status E:\dump\kopma-ugm\application\views\admin\cari.php 24
 ERROR - 2013-01-22 03:35:18 --> Severity: Notice  --> Undefined property: stdClass::$jenis_anggota E:\dump\kopma-ugm\application\views\admin\cari.php 25
+ERROR - 2013-01-22 07:01:13 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ E:\dump\kopma-ugm\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 07:01:13 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
+ERROR - 2013-01-22 07:01:48 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
+ERROR - 2013-01-22 07:01:53 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
+ERROR - 2013-01-22 07:02:16 --> Severity: Notice  --> Undefined index: login E:\dump\kopma-ugm\application\controllers\admin.php 14
