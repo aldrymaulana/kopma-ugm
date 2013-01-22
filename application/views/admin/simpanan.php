@@ -29,10 +29,13 @@
             <td><center><?php echo $smp->tahun ?></center></td>
             <td><center><?php echo $smp->tanggal ?></center></td>
             <td>
-            <center><?php
-            echo anchor('admin/simpanan_edit/' . $smp->id_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
-            echo ' | ';
-            echo anchor('admin/simpanan_hapus/' . $smp->id_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
+            <center>
+                <?php
+                if ($smp->jenis_simpanan != 'simpanan pokok') {
+                    echo anchor('admin/simpanan_edit/' . $smp->id_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
+                    echo ' | ';
+                    echo anchor('admin/simpanan_hapus/' . $smp->id_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"');
+                }
                 ?></center>
             </td>
             </tr>

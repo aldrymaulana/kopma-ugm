@@ -43,7 +43,6 @@ class Admin extends Controller {
 //        
 
     function anggota() {
-        //pagination
         $config['base_url'] = 'http://localhost/kopma/index.php/admin/anggota/';
         $config['total_row'] = $this->kopma->get_anggota();
         $config['per_page'] = 6;
@@ -213,7 +212,6 @@ class Admin extends Controller {
     }
 
     function simpanan() {
-        $this->load->model('kopma');
         if ($this->kopma->get_simpanan()) {
             $data['smpn'] = $this->kopma->get_simpanan();
         } else {
@@ -222,6 +220,13 @@ class Admin extends Controller {
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/simpanan', $data);
+        $this->load->view('template/footer');
+    }
+
+    function simpananTambah() {
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/simpananTambah');
         $this->load->view('template/footer');
     }
 
@@ -735,225 +740,225 @@ class Admin extends Controller {
         }
     }
 
-        function cari_angsuran_form() {
+    function cari_angsuran_form() {
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/cari_angsuran');
+        $this->load->view('template/footer');
+    }
+
+    function form_angsuran() {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->getAngsuran($id)) {
+            $data['pinjaman'] = $this->kopma->getAngsuran($id);
+        } else {
+            $data['pinjaman'] = null;
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/form_angsuran', $data);
+        $this->load->view('template/footer');
+    }
+
+    function angsuran_insert() {
+        $this->form_validation->set_rules('value', 'value', 'required');
+        if ($this->form_validation->run() == FALSE) {
             $this->load->view('template/header');
             $this->load->view('admin/menu');
-            $this->load->view('admin/cari_angsuran');
+            $this->load->view('admin/form_pinjaman');
             $this->load->view('template/footer');
-        }
-
-        function form_angsuran() {
-            $id = $this->uri->segment(3);
-            if ($this->kopma->getAngsuran($id)) {
-                $data['pinjaman'] = $this->kopma->getAngsuran($id);
-            } else {
-                $data['pinjaman'] = null;
-            }
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->load->view('admin/form_angsuran', $data);
-            $this->load->view('template/footer');
-        }
-
-        function angsuran_insert() {
-            $this->form_validation->set_rules('value', 'value', 'required');
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('template/header');
-                $this->load->view('admin/menu');
-                $this->load->view('admin/form_pinjaman');
-                $this->load->view('template/footer');
-            } else {
-                $data = array(
-                    'id_pinjaman' => $this->input->post('id'),
-                    'value' => $this->input->post('value'),
-                    'username' => $this->session->userdata('username')
-                ); //menyimpan semua inputan user ke dalam array
-                $id = $this->input->post('id'); //menangkap id pinjaman dan disimpan sementara ke variabel $id
-                $dat = $this->kopma->getPinjaman($id); //mengambil data pinjaman anggota berdasarkan id pinjaman di tabel pinjaman
-                $asli = $dat[0]->sisa; //menyimpan sementara data sisa pinjaman anggota ke variabel $asli
-                if ($asli > 0) { // mengecak sudah lunas atau belum hutangnya,jika value $asli = 0,berati sudah lunas dan diredirect ke admin/lunas,jika belum berarti menginsert ke tabel angsuran dan mengupdate value sisa di tabel pinjaman
-                    $this->kopma->angsuran_tambah($data); //menyimpan angsuran ke dalam tabel angsuran
-                    $sisa = $asli - $data['value']; //proses pengurangan pinjaman dan disimpan sementara di variabel $sisa,selanjutnya dipergunakan untuk mengupdate value coloum sisa di tabel pinjaman
-                    $set = array(
-                        'sisa' => $sisa
-                    );
-                    $this->kopma->updateSisa($id, $set);
-                    redirect('admin/angsuran');
-                } else {
-                    redirect('admin/lunas');
-                }
-            }
-        }
-
-        function angsuran_edit($id) {
-            $id = $this->uri->segment(3);
-            if ($this->kopma->angsuran_edit($id)) {
-                $data['angsuran'] = $this->kopma->angsuran_edit($id);
-            } else {
-                $data['angsuran'] = array();
-            }
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->load->view('admin/angsuran_edit', $data);
-            $this->load->view('template/footer');
-        }
-
-        function angsuran_update() {
-            $this->form_validation->set_rules('id_pinjaman', 'Id Pinjaman', 'required');
-            $this->form_validation->set_rules('value', 'value', 'required');
-            $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('template/header');
-                $this->load->view('admin/menu');
-                $this->load->view('admin/pinjaman_edit');
-                $this->load->view('template/footer');
-            } else {
-                $pinjaman = array(
-                    'id_pinjaman' => $this->input->post('id_pinjaman'),
-                    'value' => $this->input->post('value'),
-                    'tanggal' => $this->input->post('tanggal')
+        } else {
+            $data = array(
+                'id_pinjaman' => $this->input->post('id'),
+                'value' => $this->input->post('value'),
+                'username' => $this->session->userdata('username')
+            ); //menyimpan semua inputan user ke dalam array
+            $id = $this->input->post('id'); //menangkap id pinjaman dan disimpan sementara ke variabel $id
+            $dat = $this->kopma->getPinjaman($id); //mengambil data pinjaman anggota berdasarkan id pinjaman di tabel pinjaman
+            $asli = $dat[0]->sisa; //menyimpan sementara data sisa pinjaman anggota ke variabel $asli
+            if ($asli > 0) { // mengecak sudah lunas atau belum hutangnya,jika value $asli = 0,berati sudah lunas dan diredirect ke admin/lunas,jika belum berarti menginsert ke tabel angsuran dan mengupdate value sisa di tabel pinjaman
+                $this->kopma->angsuran_tambah($data); //menyimpan angsuran ke dalam tabel angsuran
+                $sisa = $asli - $data['value']; //proses pengurangan pinjaman dan disimpan sementara di variabel $sisa,selanjutnya dipergunakan untuk mengupdate value coloum sisa di tabel pinjaman
+                $set = array(
+                    'sisa' => $sisa
                 );
-                $this->kopma->angsuran_update($pinjaman);
+                $this->kopma->updateSisa($id, $set);
                 redirect('admin/angsuran');
+            } else {
+                redirect('admin/lunas');
             }
         }
+    }
 
-        function laporan_anggota() {
-            $this->load->model('kopma');
-            $data['hasil'] = $this->kopma->get_anggota();
+    function angsuran_edit($id) {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->angsuran_edit($id)) {
+            $data['angsuran'] = $this->kopma->angsuran_edit($id);
+        } else {
+            $data['angsuran'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/angsuran_edit', $data);
+        $this->load->view('template/footer');
+    }
+
+    function angsuran_update() {
+        $this->form_validation->set_rules('id_pinjaman', 'Id Pinjaman', 'required');
+        $this->form_validation->set_rules('value', 'value', 'required');
+        $this->form_validation->set_rules('tanggal', 'tanggal', 'required');
+        if ($this->form_validation->run() == FALSE) {
             $this->load->view('template/header');
             $this->load->view('admin/menu');
-            $this->load->view('admin/laporan_anggota', $data);
+            $this->load->view('admin/pinjaman_edit');
             $this->load->view('template/footer');
+        } else {
+            $pinjaman = array(
+                'id_pinjaman' => $this->input->post('id_pinjaman'),
+                'value' => $this->input->post('value'),
+                'tanggal' => $this->input->post('tanggal')
+            );
+            $this->kopma->angsuran_update($pinjaman);
+            redirect('admin/angsuran');
         }
+    }
 
-        function laporan_simpanan() {
-            $this->load->model('kopma');
-            if ($this->kopma->get_simpanan()) {
+    function laporan_anggota() {
+        $this->load->model('kopma');
+        $data['hasil'] = $this->kopma->get_anggota();
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/laporan_anggota', $data);
+        $this->load->view('template/footer');
+    }
+
+    function laporan_simpanan() {
+        $this->load->model('kopma');
+        if ($this->kopma->get_simpanan()) {
             $data['smpn'] = $this->kopma->get_simpanan();
         } else {
             $data['smpn'] = array();
         }
         $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->load->view('admin/laporan_simpanan',$data);
-            $this->load->view('template/footer');
-        }
+        $this->load->view('admin/menu');
+        $this->load->view('admin/laporan_simpanan', $data);
+        $this->load->view('template/footer');
+    }
 
-        function laporan_pinjaman() {
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->load->view('admin/laporan_pinjaman');
-            $this->load->view('template/footer');
-        }
+    function laporan_pinjaman() {
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/laporan_pinjaman');
+        $this->load->view('template/footer');
+    }
 
-        function laporan_angsuran() {
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->load->view('admin/laporan_angsuran');
-            $this->load->view('template/footer');
-        }
+    function laporan_angsuran() {
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/laporan_angsuran');
+        $this->load->view('template/footer');
+    }
 
-        function simpanan_wajib_tambah() {
-            $nia = $this->input->post('nia');
-            $jenis = $this->input->post('simpanan');
-            $bulan = $this->input->post('bln');
-            $thn = date('Y');
-            foreach ($bulan as $bln) {
-                $cek = $this->kopma->cekWajib($nia, $bln, $thn);
-                if ($cek > 0) {
-                    redirect('admin/sudahBayarWajib');
-                } else {
-                    $post = array(
-                        'nia' => $nia,
-                        'id_jenis_simpanan' => $jenis,
-                        'bulan' => $bln,
-                        'tahun' => $thn
-                    );
-                    $this->kopma->simpananWajibSave($post);
-                }
-            }
-            redirect('admin/simpanan');
-        }
-
-        function simpanan_pokok_tambah() { // tahun lenghtnya jadi
-            $nia = $this->input->post('nia');
-            $jenis = $this->input->post('simpanan');
-            $tahun = date('Y');
-            $cek = $this->kopma->cekPokok($nia, $jenis, $tahun);
+    function simpanan_wajib_tambah() {
+        $nia = $this->input->post('nia');
+        $jenis = $this->input->post('simpanan');
+        $bulan = $this->input->post('bln');
+        $thn = date('Y');
+        foreach ($bulan as $bln) {
+            $cek = $this->kopma->cekWajib($nia, $bln, $thn);
             if ($cek > 0) {
-                redirect('admin/sudahBayarPokok');
+                redirect('admin/sudahBayarWajib');
             } else {
                 $post = array(
                     'nia' => $nia,
                     'id_jenis_simpanan' => $jenis,
-                    'bulan' => 0,
-                    'tahun' => $tahun
+                    'bulan' => $bln,
+                    'tahun' => $thn
                 );
                 $this->kopma->simpananWajibSave($post);
-                redirect('admin/simpanan');
             }
         }
+        redirect('admin/simpanan');
+    }
 
-        function sudahBayarWajib() {
-            $data['isi'] = 'Transaksi tidak dapat dilanjutkan, bulan yang anda pilih sudah dibayar sebelumnya.';
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->parser->parse('admin/alert', $data);
-            $this->load->view('template/footer');
+    function simpanan_pokok_tambah() { // tahun lenghtnya jadi
+        $nia = $this->input->post('nia');
+        $jenis = $this->input->post('simpanan');
+        $tahun = date('Y');
+        $cek = $this->kopma->cekPokok($nia, $jenis, $tahun);
+        if ($cek > 0) {
+            redirect('admin/sudahBayarPokok');
+        } else {
+            $post = array(
+                'nia' => $nia,
+                'id_jenis_simpanan' => $jenis,
+                'bulan' => 0,
+                'tahun' => $tahun
+            );
+            $this->kopma->simpananWajibSave($post);
+            redirect('admin/simpanan');
         }
+    }
 
-        function sudahBayarPokok() {
-            $data['isi'] = 'Transaksi tidak dapat dilanjutkan, ID ini sudah membayar Simpanan Pokok.';
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->parser->parse('admin/alert', $data);
-            $this->load->view('template/footer');
-        }
+    function sudahBayarWajib() {
+        $data['isi'] = 'Transaksi tidak dapat dilanjutkan, bulan yang anda pilih sudah dibayar sebelumnya.';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
 
-        function noResult() {
-            $data['isi'] = '<div class="alert alert-error">ID user tidak valid.</div>';
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->parser->parse('admin/alert', $data);
-            $this->load->view('template/footer');
-        }
+    function sudahBayarPokok() {
+        $data['isi'] = 'Transaksi tidak dapat dilanjutkan, ID ini sudah membayar Simpanan Pokok.';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
 
-        function lunas() {
-            $data['isi'] = '<div class="alert alert-info">Pinjaman user ini telah Lunas.</div>';
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->parser->parse('admin/alert', $data);
-            $this->load->view('template/footer');
-        }
+    function noResult() {
+        $data['isi'] = '<div class="alert alert-error">ID user tidak valid.</div>';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
 
-        function toExcelAllAnggota() {
-            if ($this->kopma->ToExcelAllAnggota()) {
-                $data['hasil'] = $this->kopma->ToExcelAllAnggota();
-            } else {
-                $data['hasil'] = array();
-            }
-            $this->load->view('template/header');
-            $this->load->view('admin/excel_anggota', $data);
-        }
+    function lunas() {
+        $data['isi'] = '<div class="alert alert-info">Pinjaman user ini telah Lunas.</div>';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
 
-         function toExcelAllSimpanan() {
-            if ($this->kopma->ToExcelAllSimpanan()) {
-                $data['smpn'] = $this->kopma->ToExcelAllSimpanan();
-            } else {
-                $data['smpn'] = array();
-            }
-            $this->load->view('template/header');
-            $this->load->view('admin/excel_simpanan', $data);
+    function toExcelAllAnggota() {
+        if ($this->kopma->ToExcelAllAnggota()) {
+            $data['hasil'] = $this->kopma->ToExcelAllAnggota();
+        } else {
+            $data['hasil'] = array();
         }
-        
-        function tolakPinjaman() {
-            $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
-            $this->load->view('template/header');
-            $this->load->view('admin/menu');
-            $this->parser->parse('admin/alert', $data);
-            $this->load->view('template/footer');
+        $this->load->view('template/header');
+        $this->load->view('admin/excel_anggota', $data);
+    }
+
+    function toExcelAllSimpanan() {
+        if ($this->kopma->ToExcelAllSimpanan()) {
+            $data['smpn'] = $this->kopma->ToExcelAllSimpanan();
+        } else {
+            $data['smpn'] = array();
         }
+        $this->load->view('template/header');
+        $this->load->view('admin/excel_simpanan', $data);
+    }
+
+    function tolakPinjaman() {
+        $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->parser->parse('admin/alert', $data);
+        $this->load->view('template/footer');
+    }
 
 //        function logBackUpa() {
 //            $this->load->helper('download');
@@ -983,34 +988,34 @@ class Admin extends Controller {
 //            $result = $this->zip->archive('my_backup.zip');
 //            return $result;
 //        }
-    
-        function pdf(){
- // Load library FPDF
+
+    function pdf() {
+        // Load library FPDF
         $this->load->library('fpdf');
-         
+
         // Load Database
         $this->load->database();
-         
+
         /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
-           dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
-           perhatikan baris $config['fonts_path']= 'system/fonts/';
-           didalam file application/config/config.php
-        */           
-        define('FPDF_FONTPATH',$this->config->item('fonts_path'));
-         
+          dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+          perhatikan baris $config['fonts_path']= 'system/fonts/';
+          didalam file application/config/config.php
+         */
+        define('FPDF_FONTPATH', $this->config->item('fonts_path'));
+
         // Load model "karyawan_model"
         $this->load->model('kopma');
-         
+
         /* Kita akses function get_all didalam karyawan_model
-           function get_all merupakan fungsi yang dibuat untuk mengambil
-           seluruh data karyawan didalam database.
-        */
+          function get_all merupakan fungsi yang dibuat untuk mengambil
+          seluruh data karyawan didalam database.
+         */
         $data['hasil'] = $this->kopma->get_anggota();
-         
+
         // Load view "pdf_report" untuk menampilkan hasilnya       
         $this->load->view('admin/pdf_report', $data);
-        
-        }
+    }
+
 }
 
 ?>
