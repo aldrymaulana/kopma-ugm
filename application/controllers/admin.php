@@ -43,7 +43,7 @@ class Admin extends Controller {
 //        
 
     function anggota() {
-        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/anggota/';
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/anggota/';
         $config['total_rows'] = $this->kopma->cAnggota();
         $config['per_page'] = 10;
         $config['num_links'] = 1;
@@ -216,7 +216,7 @@ class Admin extends Controller {
     }
 
     function simpanan() {
-        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/simpanan/';
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/simpanan/';
         $config['total_rows'] = $this->kopma->cSimpanan();
         $config['per_page'] = 10;
         $config['num_links'] = 1;
@@ -600,7 +600,7 @@ class Admin extends Controller {
     }
 
     function pinjaman() {
-        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/pinjaman/';
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/pinjaman/';
         $config['total_rows'] = $this->kopma->cPinjaman();
         $config['per_page'] = 10;
         $config['num_links'] = 1;
@@ -723,7 +723,7 @@ class Admin extends Controller {
     }
 
     function angsuran() {
-        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/angsuran/';
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/angsuran/';
         $config['total_rows'] = $this->kopma->cAngsuran();
         $config['per_page'] = 10;
         $config['num_links'] = 1;
@@ -846,8 +846,17 @@ class Admin extends Controller {
     }
 
     function laporan_anggota() {
-        $this->load->model('kopma');
-        $data['hasil'] = $this->kopma->get_anggota();
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/laporan_anggota/';
+        $config['total_rows'] = $this->kopma->cLapAng();
+        $config['per_page'] = 5;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_anggota($config)) {
+            $data['hasil'] = $this->kopma->get_anggota($config);
+        } else {
+            $data['hasil'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/laporan_anggota', $data);
@@ -855,9 +864,14 @@ class Admin extends Controller {
     }
 
     function laporan_simpanan() {
-        $this->load->model('kopma');
-        if ($this->kopma->get_simpanan()) {
-            $data['smpn'] = $this->kopma->get_simpanan();
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/laporan_simpanan/';
+        $config['total_rows'] = $this->kopma->cLapSim();
+        $config['per_page'] = 5;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_simpanan($config)) {
+            $data['smpn'] = $this->kopma->get_simpanan($config);
         } else {
             $data['smpn'] = array();
         }
@@ -1039,7 +1053,7 @@ class Admin extends Controller {
     }
 
     function saldo() {
-        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/saldo/';
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/saldo/';
         $config['total_rows'] = $this->kopma->cSaldo();
         $config['per_page'] = 10;
         $config['num_links'] = 1;

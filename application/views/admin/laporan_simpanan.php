@@ -1,5 +1,5 @@
 <div class="span10">
-        <center> <h2>Data Simpanan</h2></center>
+    <center> <h2>Data Simpanan</h2></center>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -10,12 +10,12 @@
         <th><center>Bulan Bayar</center></th>
         <th><center>Tahun</center></th>
         <th><center>Tanggal Transaksi</center></th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
             <?php foreach ($smpn as $smp) : ?>
                 <tr>
-            <td><center><?php echo $smp->id_simpanan ?></a></center></td>
+                    <td><center><?php echo $smp->id_simpanan ?></a></center></td>
             <td><center><?php echo $smp->nia ?></center></td>
             <td><center><?php echo $smp->nama ?></center></td>
             <td><center><?php echo $smp->jenis_simpanan ?></center></td>
@@ -26,5 +26,6 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href='toExcelAllSimpanan'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
+    <?php echo $this->pagination->create_links(); ?>
+    <a href='toExcelAllSimpanan'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div><!--/row-->

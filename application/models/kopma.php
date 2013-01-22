@@ -16,8 +16,8 @@ class Kopma extends Model {
         }
     }
 
-    function get_anggota() {
-        $get = $this->db->get('vanggota');
+    function get_anggota($config) {
+        $get = $this->db->get('vanggota', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
             return $get->result();
         }
@@ -376,6 +376,16 @@ class Kopma extends Model {
 
     function cSaldo() {
         $data = $this->db->get('vsaldo');
+        return $data->num_rows();
+    }
+
+    function cLapAng() {
+        $data = $this->db->get('anggota');
+        return $data->num_rows();
+    }
+
+    function cLapSim() {
+        $data = $this->db->get('simpanan');
         return $data->num_rows();
     }
 

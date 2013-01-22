@@ -1,9 +1,9 @@
 <div class="span10">
     <center><h2>Laporan Data Anggota</h2></center>
-    <table class="table table-striped table-bordered table-condensed">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Nia</th>
+                <th>NIA</th>
                 <th>No KTP</th>
                 <th>Nama</th>
                 <th>Tempat Lahir</th>
@@ -13,18 +13,18 @@
                 <th>Provinsi</th>
                 <th>Kabupaten</th>
                 <th>Kota</th>
-                <th>No NPWP</th>  
+                <th>NPWP</th>  
                 <th>telp</th>
                 <th>Hp</th>
                 <th>Email</th>
                 <th>Jenis kelamin</th>
                 <th>Warga Negara</th>
                 <th>Hobi</th>
-                <th>status</th>
+                <th>Status</th>
                 <th>Jenis Anggota</th>
-                <th>id perkawinan</th>
-                <th>status pendidikan</th>
-                <th>tanggal masuk</th>
+                <th>Perkawinan</th>
+                <th>Pendidikan</th>
+                <th>Tanggal Masuk</th>
             </tr>
         </thead>
         <tbody>
@@ -56,5 +56,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-        <a href='toExcelAllAnggota'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
+    <?php echo $this->pagination->create_links(); ?>
+    <a href='toExcelAllAnggota'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div>
