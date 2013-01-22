@@ -1016,15 +1016,18 @@ class Admin extends Controller {
         $this->load->view('admin/pdf_report', $data);
     }
 
-    
-    function saldo(){
+    function saldo() {
+        if ($this->kopma->saldo()) {
+            $data['saldo'] = $this->kopma->saldo();
+        } else {
+            $data['saldo'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
-        $this->load->view('admin/saldo');
+        $this->load->view('admin/saldo', $data);
         $this->load->view('template/footer');
     }
-    
-    
+
 }
 
 ?>

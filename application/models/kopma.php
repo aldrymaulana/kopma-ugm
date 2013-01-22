@@ -22,9 +22,9 @@ class Kopma extends Model {
             return $get->result();
         }
     }
-    
+
     function get_anggota_pag($config) {
-        $get = $this->db->get('vanggota',$config['per_page'],  $config['uri']);
+        $get = $this->db->get('vanggota', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
             return $get->result();
         }
@@ -121,6 +121,7 @@ class Kopma extends Model {
     }
 
     function get_simpanan() {
+        $this->db->order_by('id_simpanan');
         $get = $this->db->get('vsimpanan');
         if ($get->num_rows > 0) {
             return $get->result();
@@ -261,9 +262,9 @@ class Kopma extends Model {
         $this->db->where('id_angsuran', $angsuran['id_angsuran']);
         $this->db->update('angsuran', $angsuran);
     }
-    
-    function angsuran_hapus($id){
-        $this->db->where('id_angsuran',$id);
+
+    function angsuran_hapus($id) {
+        $this->db->where('id_angsuran', $id);
         $this->db->delete('angsuran');
     }
 
@@ -323,28 +324,33 @@ class Kopma extends Model {
             return $data->result();
         }
     }
-    
-    function toExcelAllAnggota(){
-       $get= $this->db->get('vanggota');
-        if($get->num_rows > 0){
+
+    function toExcelAllAnggota() {
+        $get = $this->db->get('vanggota');
+        if ($get->num_rows > 0) {
             return $get->result();
         }
     }
 
-        function toExcelAllSimpanan(){
-       $get= $this->db->get('vsimpanan');
-        if($get->num_rows > 0){
+    function toExcelAllSimpanan() {
+        $get = $this->db->get('vsimpanan');
+        if ($get->num_rows > 0) {
             return $get->result();
         }
     }
-
-    
 
     function getUser($c) {
         $this->db->where('nia', $c);
         $data = $this->db->get('vpinjaman');
         if ($data->num_rows > 0) {
             return $data->num_rows();
+        }
+    }
+
+    function saldo() {
+        $data = $this->db->get('vsaldo');
+        if ($data->num_rows > 0) {
+            return $data->result();
         }
     }
 

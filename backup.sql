@@ -52,7 +52,7 @@ CREATE TABLE `anggota` (
 
 /*Data for the table `anggota` */
 
-insert  into `anggota`(`nia`,`no_ktp`,`nama`,`tempat_lahir`,`tgl_lahir`,`alamat_lengkap`,`kode_pos`,`provinsi`,`kabupaten`,`kota`,`no_npwp`,`telp`,`hp`,`email`,`jenis_kelamin`,`warga_negara`,`hobi`,`status`,`jenis_anggota`,`id_perkawinan`,`id_pendidikan`,`tanggal_masuk`) values (3401,'1487294812425','yudha wirawan sakti','yogyakarta','2013-05-28','gancahan V RT  ','55564','DIY','Sleman','Yogyakarta',NULL,'0275788723','087778726322','yudha_28mei@gmail.com','laki-laki','Indonesia','Nonton Bola tentunya','aktif','biasa',1,7,'2013-01-13 09:18:55'),(11163,'','Adi Supriyono','Boyolali','1993-03-19','janti TR 04/02  CTT Depok, Sleman','55564','DIY','Sleman','Yogyakarta','','0','083877440780','adisupriyono@rocketmail.c','laki-laki','Indonesia','Olahraga','aktif','biasa',1,5,'2013-01-16 09:00:00'),(11164,'','Muhammad FajriI Saptaji','Sleman','1995-09-11','Perum Margorejo Asri Tempel Sleman','55564','DIY','Sleman','Yogyakarta','','0','087838303183','fajrisaptaji@gmail.com','laki-laki','Indonesia','Membaca\n','aktif','biasa',1,4,'2013-01-16 09:00:00'),(11165,'','Ali Fian Joni Nuryanto','Banyumas','1993-07-22','Pogung Kidul RT 06/46','55564','DIY','Bantul','Yogyakarta','','0','085693139139','jinirikudo@gmail.vom','laki-laki','Indonesia','BLOGGING\n','aktif','biasa',1,4,'2013-01-16 09:00:00');
+insert  into `anggota`(`nia`,`no_ktp`,`nama`,`tempat_lahir`,`tgl_lahir`,`alamat_lengkap`,`kode_pos`,`provinsi`,`kabupaten`,`kota`,`no_npwp`,`telp`,`hp`,`email`,`jenis_kelamin`,`warga_negara`,`hobi`,`status`,`jenis_anggota`,`id_perkawinan`,`id_pendidikan`,`tanggal_masuk`) values (3401,'1487294812425','yudha wirawan sakti','yogyakarta','2013-05-28','gancahan V RT  ','55564','DIY','Sleman','Yogyakarta',NULL,'0275788723','087778726322','yudha_28mei@gmail.com','laki-laki','Indonesia','Nonton Bola tentunya','aktif','biasa',1,7,'2013-01-13 17:18:55'),(11161,'','Cakka Pandu Himadewa','Tangerang','1993-06-18','Jakal KM 4,5 Yk','','DIY','','Yogyakarta','','0','085780379516','panducakra@gmail.com','laki-laki','Indonesia','Membaca\n','aktif','biasa',1,4,'2012-06-21 17:00:00'),(11162,'','Elly Cahyawati','Yogyakarta','1993-01-14','Wirogunan Mg Ii/682 Yk','','DIY','','Yogyakarta','','0','087839260712','elly_cahya@yahoo.com','perempuan','Indonesia','Membaca','aktif','biasa',1,4,'2012-06-21 17:00:00'),(11163,'','Adi Supriyono','Boyolali','1993-03-19','janti TR 04/02  CTT Depok, Sleman','55564','DIY','Sleman','Yogyakarta','','0','083877440780','adisupriyono@rocketmail.c','laki-laki','Indonesia','Olahraga','aktif','biasa',1,4,'2013-01-16 17:00:00'),(11164,'','Muhammad FajriI Saptaji','Sleman','1995-09-11','Perum Margorejo Asri Tempel Sleman','55564','DIY','Sleman','Yogyakarta','','0','087838303183','fajrisaptaji@gmail.com','laki-laki','Indonesia','Membaca\n','aktif','biasa',1,4,'2013-01-16 17:00:00'),(11165,'','Ali Fian Joni Nuryanto','Banyumas','1993-07-22','Pogung Kidul RT 06/46','55564','DIY','Bantul','Yogyakarta','','0','085693139139','jinirikudo@gmail.vom','laki-laki','Indonesia','BLOGGING\n','aktif','biasa',1,4,'2013-01-16 17:00:00'),(11166,'','Ayu Yulfiana','Tegal','1989-07-12','Jakal KM 5,2 Yk','55564','DIY','Sleman','Yogyakarta','','0','087839109758','ayuyulfiana@yahoo.com','perempuan','Indonesia','Membaca\n','aktif','biasa',1,4,'2012-08-05 17:00:00'),(11167,'','Raesita Eryanasari','Boyolali','1991-07-13','SDA','55564','DIY','Sleman','Yogyakarta','','0','081946468886','raezh_poenya@yahoo.co.id','perempuan','Indonesia','Membaca , Travelling','aktif','biasa',1,4,'2011-10-07 17:00:00'),(11168,'','Iyan Hanafi Van Tony','Sleman','1993-08-14','Ngaglik Rt 2/48 Ch Sleman Sleman Yk','55564','DIY','Sleman','Yogyakarta','','0','081904007743','iysn.hsnsfi@yahoo.com','laki-laki','Indonesia','Travelling','aktif','biasa',1,4,'2012-06-21 17:00:00'),(11169,'','Shella Ayu Soraya','Surakarta','1993-06-25','C.Simanjuntak Terban','','','','Yogyakarta','','0','085747510649','cowon_revolution@yahoo.co','laki-laki','Indonesia','Membaca\n','aktif','biasa',1,4,'2012-11-07 17:00:00'),(11170,'','Sri Hartati','Temanggung','1994-01-23','Karang Malang Blok C5/99','','DIY','','Yogyakarta','','0','08562593995','Titagea@Rocketmail.Com','perempuan','Indonesia','Fotografi','aktif','biasa',1,4,'2012-06-21 17:00:00'),(11171,'','Ahmad Wahyu Ilahi','Serang','1993-08-07','Sendowo Blok C No 72','','DIY','','Yogyakarta','','0','08988631933','wahyuapofokin@gmail.com','laki-laki','Indonesia','Bersepeda,Jogging Main Komputer\n','aktif','biasa',1,4,'2012-06-21 17:00:00');
 
 /*Table structure for table `angsuran` */
 
@@ -67,11 +67,11 @@ CREATE TABLE `angsuran` (
   PRIMARY KEY (`id_angsuran`),
   KEY `FK_angsuran` (`id_pinjaman`),
   CONSTRAINT `FK_angsuran` FOREIGN KEY (`id_pinjaman`) REFERENCES `pinjaman` (`id_pinjaman`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `angsuran` */
 
-insert  into `angsuran`(`id_angsuran`,`id_pinjaman`,`tanggal`,`value`,`username`) values (9,13,'2013-01-20 18:41:49',200000,'yudha'),(10,13,'2013-01-20 18:49:40',500000,'yudha'),(11,13,'2013-01-20 18:50:03',300000,'yudha');
+insert  into `angsuran`(`id_angsuran`,`id_pinjaman`,`tanggal`,`value`,`username`) values (15,16,'2013-01-21 18:24:25',100000,'yudha');
 
 /*Table structure for table `jenis_simpanan` */
 
@@ -116,11 +116,11 @@ CREATE TABLE `pinjaman` (
   PRIMARY KEY (`id_pinjaman`),
   KEY `FK_nia_pinjaman` (`nia`),
   CONSTRAINT `FK_nia_pinjaman` FOREIGN KEY (`nia`) REFERENCES `anggota` (`nia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pinjaman` */
 
-insert  into `pinjaman`(`id_pinjaman`,`nia`,`tanggal`,`value`,`sisa`,`username`) values (13,3401,'2013-01-20 18:40:18',1000000,0,'yudha');
+insert  into `pinjaman`(`id_pinjaman`,`nia`,`tanggal`,`value`,`sisa`,`username`) values (16,3401,'2013-01-21 18:23:57',1000000,900000,'yudha');
 
 /*Table structure for table `simpanan` */
 
@@ -140,11 +140,11 @@ CREATE TABLE `simpanan` (
   KEY `FK_id_user_simpanan` (`tahun`),
   CONSTRAINT `FK_id_jenis_simpanan` FOREIGN KEY (`id_jenis_simpanan`) REFERENCES `jenis_simpanan` (`id_jenis_simpanan`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_nia_simpanan` FOREIGN KEY (`nia`) REFERENCES `anggota` (`nia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `simpanan` */
 
-insert  into `simpanan`(`id_simpanan`,`nia`,`id_jenis_simpanan`,`bulan`,`tahun`,`tanggal`,`username`) values (1,3401,1,'0','2013','2013-01-19 23:09:20','yudha'),(2,3401,2,'01','2013','2013-01-19 23:10:44','yudha');
+insert  into `simpanan`(`id_simpanan`,`nia`,`id_jenis_simpanan`,`bulan`,`tahun`,`tanggal`,`username`) values (3,3401,1,'0','2013','2013-01-22 23:28:26',NULL),(4,3401,2,'01','2013','2013-01-22 23:28:53',NULL),(5,11170,1,'0','2013','2013-01-22 23:59:22',NULL),(6,11170,2,'01','2013','2013-01-22 23:59:40',NULL),(7,11170,2,'02','2013','2013-01-22 23:59:41',NULL),(8,11170,2,'03','2013','2013-01-22 23:59:41',NULL),(9,11170,2,'04','2013','2013-01-22 23:59:41',NULL),(10,11170,2,'05','2013','2013-01-22 23:59:41',NULL),(11,11170,2,'06','2013','2013-01-22 23:59:41',NULL),(12,11170,2,'07','2013','2013-01-22 23:59:41',NULL),(13,11170,2,'08','2013','2013-01-22 23:59:41',NULL),(14,11170,2,'09','2013','2013-01-22 23:59:41',NULL),(15,11170,2,'10','2013','2013-01-22 23:59:41',NULL);
 
 /*Table structure for table `status_perkawinan` */
 
@@ -244,6 +244,19 @@ DROP TABLE IF EXISTS `vpinjaman`;
  `sisa` int(11) 
 )*/;
 
+/*Table structure for table `vsaldo` */
+
+DROP TABLE IF EXISTS `vsaldo`;
+
+/*!50001 DROP VIEW IF EXISTS `vsaldo` */;
+/*!50001 DROP TABLE IF EXISTS `vsaldo` */;
+
+/*!50001 CREATE TABLE  `vsaldo`(
+ `nia` int(11) ,
+ `nama` varchar(100) ,
+ `saldo` decimal(32,0) 
+)*/;
+
 /*Table structure for table `vsimpanan` */
 
 DROP TABLE IF EXISTS `vsimpanan`;
@@ -254,10 +267,12 @@ DROP TABLE IF EXISTS `vsimpanan`;
 /*!50001 CREATE TABLE  `vsimpanan`(
  `id_simpanan` int(11) ,
  `nia` int(11) ,
+ `nama` varchar(100) ,
  `bulan` char(2) ,
  `tahun` char(4) ,
- `nama` varchar(100) ,
+ `idJnsSim` int(11) ,
  `jenis_simpanan` varchar(25) ,
+ `petugas` varchar(50) ,
  `tanggal` timestamp 
 )*/;
 
@@ -308,12 +323,19 @@ DROP TABLE IF EXISTS `vsimpanan_wajib`;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`kopma`@`localhost` SQL SECURITY DEFINER VIEW `vpinjaman` AS (select `a`.`id_pinjaman` AS `id_pinjaman`,`a`.`nia` AS `nia`,`b`.`nama` AS `nama`,`a`.`tanggal` AS `tanggal`,`a`.`value` AS `value`,`a`.`sisa` AS `sisa` from (`pinjaman` `a` join `anggota` `b`) where (`a`.`nia` = `b`.`nia`)) */;
 
+/*View structure for view vsaldo */
+
+/*!50001 DROP TABLE IF EXISTS `vsaldo` */;
+/*!50001 DROP VIEW IF EXISTS `vsaldo` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`kopma`@`localhost` SQL SECURITY DEFINER VIEW `vsaldo` AS (select `a`.`nia` AS `nia`,`c`.`nama` AS `nama`,sum(`b`.`value`) AS `saldo` from ((`simpanan` `a` join `jenis_simpanan` `b` on((`a`.`id_jenis_simpanan` = `b`.`id_jenis_simpanan`))) join `anggota` `c` on((`a`.`nia` = `c`.`nia`))) group by `a`.`nia`) */;
+
 /*View structure for view vsimpanan */
 
 /*!50001 DROP TABLE IF EXISTS `vsimpanan` */;
 /*!50001 DROP VIEW IF EXISTS `vsimpanan` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`kopma`@`localhost` SQL SECURITY DEFINER VIEW `vsimpanan` AS (select `a`.`id_simpanan` AS `id_simpanan`,`a`.`nia` AS `nia`,`a`.`bulan` AS `bulan`,`a`.`tahun` AS `tahun`,`b`.`nama` AS `nama`,`c`.`jenis_simpanan` AS `jenis_simpanan`,`a`.`tanggal` AS `tanggal` from ((`simpanan` `a` join `anggota` `b`) join `jenis_simpanan` `c`) where ((`a`.`nia` = `b`.`nia`) and (`a`.`id_jenis_simpanan` = `c`.`id_jenis_simpanan`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`kopma`@`localhost` SQL SECURITY DEFINER VIEW `vsimpanan` AS (select `a`.`id_simpanan` AS `id_simpanan`,`a`.`nia` AS `nia`,`b`.`nama` AS `nama`,`a`.`bulan` AS `bulan`,`a`.`tahun` AS `tahun`,`a`.`id_jenis_simpanan` AS `idJnsSim`,`c`.`jenis_simpanan` AS `jenis_simpanan`,`a`.`username` AS `petugas`,`a`.`tanggal` AS `tanggal` from ((`simpanan` `a` join `anggota` `b`) join `jenis_simpanan` `c`) where ((`a`.`nia` = `b`.`nia`) and (`a`.`id_jenis_simpanan` = `c`.`id_jenis_simpanan`))) */;
 
 /*View structure for view vsimpanan_pokok */
 
