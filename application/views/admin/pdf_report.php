@@ -12,7 +12,7 @@ date_default_timezone_set('Asia/Jakarta');
    contoh : $this->fpdf->FPDF("P","cm", array(20, 20)); 
 */
  
-$this->fpdf->FPDF("L","cm","A4");
+$this->fpdf->FPDF("L","cm","A3");
  
 // kita set marginnya dimulai dari kiri, atas, kanan. jika tidak diset, defaultnya 1 cm
 $this->fpdf->SetMargins(1,1,1);

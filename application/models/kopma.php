@@ -261,6 +261,11 @@ class Kopma extends Model {
         $this->db->where('id_angsuran', $angsuran['id_angsuran']);
         $this->db->update('angsuran', $angsuran);
     }
+    
+    function angsuran_hapus($id){
+        $this->db->where('id_angsuran',$id);
+        $this->db->delete('angsuran');
+    }
 
     function getSimpananWajib($id, $thn, $nia) {
         $this->db->where('id_jenis_simpanan', $id);
@@ -319,13 +324,20 @@ class Kopma extends Model {
         }
     }
     
-    function toExcelAll(){
+    function toExcelAllAnggota(){
        $get= $this->db->get('vanggota');
         if($get->num_rows > 0){
             return $get->result();
         }
     }
-    
+
+        function toExcelAllSimpanan(){
+       $get= $this->db->get('vsimpanan');
+        if($get->num_rows > 0){
+            return $get->result();
+        }
+    }
+
     
 
     function getUser($c) {

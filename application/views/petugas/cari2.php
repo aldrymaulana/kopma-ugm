@@ -4,11 +4,11 @@
         echo '<div class ="alert alert-error"><strong>Maaf! </strong>, Data Anggota Tidak Ada </div>';
     } else {
         ?>
-        <center><h2>Data User</h2></center>
+        <center><h2>Data Anggota</h2></center>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th><center>Nia</center></th>
+            <th><center>Nia</center></th>
             <th><center>Nama</center></th>
             <th><center>status</center></th>
             <th><center>Jenis Anggota</center></th>
@@ -18,7 +18,7 @@
             <tbody>
                 <?php foreach ($hasil as $agt) : ?>
                     <tr>
-                        <td><center><?php echo $agt->nia ?></center></td>
+                 <td><center><?php echo $agt->nia ?></center></td>
                 <td><center><?php echo $agt->nama ?></center></td>
                 <td><center><?php echo $agt->status ?></center></td>
                 <td><center><?php echo $agt->jenis_anggota ?></center></td>

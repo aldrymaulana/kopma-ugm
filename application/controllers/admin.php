@@ -828,9 +828,15 @@ class Admin extends Controller {
         }
 
         function laporan_simpanan() {
-            $this->load->view('template/header');
+            $this->load->model('kopma');
+            if ($this->kopma->get_simpanan()) {
+            $data['smpn'] = $this->kopma->get_simpanan();
+        } else {
+            $data['smpn'] = array();
+        }
+        $this->load->view('template/header');
             $this->load->view('admin/menu');
-            $this->load->view('admin/laporan_simpanan');
+            $this->load->view('admin/laporan_simpanan',$data);
             $this->load->view('template/footer');
         }
 
@@ -921,16 +927,26 @@ class Admin extends Controller {
             $this->load->view('template/footer');
         }
 
-        function toExcelAll() {
-            if ($this->kopma->ToExcelAll()) {
-                $data['hasil'] = $this->kopma->ToExcelAll();
+        function toExcelAllAnggota() {
+            if ($this->kopma->ToExcelAllAnggota()) {
+                $data['hasil'] = $this->kopma->ToExcelAllAnggota();
             } else {
                 $data['hasil'] = array();
             }
-
+            $this->load->view('template/header');
             $this->load->view('admin/excel_anggota', $data);
         }
 
+         function toExcelAllSimpanan() {
+            if ($this->kopma->ToExcelAllSimpanan()) {
+                $data['smpn'] = $this->kopma->ToExcelAllSimpanan();
+            } else {
+                $data['smpn'] = array();
+            }
+            $this->load->view('template/header');
+            $this->load->view('admin/excel_simpanan', $data);
+        }
+        
         function tolakPinjaman() {
             $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
             $this->load->view('template/header');

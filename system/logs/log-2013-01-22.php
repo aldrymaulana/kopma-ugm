@@ -103,3 +103,9 @@ ERROR - 2013-01-22 09:49:39 --> Severity: Warning  --> include(timesb.php) [<a h
 ERROR - 2013-01-22 09:49:39 --> Severity: Warning  --> include() [<a href='function.include'>function.include</a>]: Failed opening 'timesb.php' for inclusion (include_path='.;\xampp\php\PEAR') D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
 ERROR - 2013-01-22 15:49:49 --> Severity: Warning  --> include(timesb.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
 ERROR - 2013-01-22 15:49:49 --> Severity: Warning  --> include() [<a href='function.include'>function.include</a>]: Failed opening 'timesb.php' for inclusion (include_path='.;\xampp\php\PEAR') D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 11:15:23 --> Severity: Notice  --> Undefined variable: smpn D:\xampp\htdocs\kopma\application\views\admin\laporan_simpanan.php 15
+ERROR - 2013-01-22 11:15:23 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\kopma\application\views\admin\laporan_simpanan.php 15
+ERROR - 2013-01-22 12:02:30 --> Severity: Notice  --> Undefined variable: smpn D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 23
+ERROR - 2013-01-22 12:02:30 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 23
+ERROR - 2013-01-22 12:05:25 --> Severity: Notice  --> Undefined variable: smpn D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 18
+ERROR - 2013-01-22 12:05:25 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 18

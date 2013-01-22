@@ -16,6 +16,7 @@
         <th><center>Mengansur</center></th>
         <th><center>Petugas penerima</center></th>
         <th><center>Tgl transaksi</center></th>
+        <th><center>Action</center></th>
         </tr>
         </thead>
         <tbody>
@@ -29,8 +30,15 @@
             <td><center><?php echo $ans->mengansur ?></center></td>
             <td><center><?php echo $ans->username ?></center></td>
             <td><center><?php echo $ans->tanggal ?></center></td>
-            </tr>
+            <td>
+            <center><?php
+            echo anchor('petugas/angsuran_edit/' . $ans->id_angsuran, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
+            echo ' | ';
+            echo anchor('petugas/angsuran_hapus/' . $ans->id_angsuran, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
+                ?></center>
+            </td>        
+    </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
-</div><!--/row-->
+</div>

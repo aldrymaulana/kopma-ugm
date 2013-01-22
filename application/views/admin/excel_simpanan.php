@@ -1,3 +1,10 @@
+<?php
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=exceldatasimpanan.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <div class="span10">
         <center> <h2>Data Simpanan</h2></center>
     <table class="table table-striped table-bordered table-condensed">
@@ -26,5 +33,3 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href='toExcelAllSimpanan'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
-</div><!--/row-->

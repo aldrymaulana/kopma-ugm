@@ -30,7 +30,7 @@
         <tbody>
             <?php foreach ($hasil as $agt) : ?>
                 <tr>
-                    <td><a href="<?php echo site_url() ?>/admin/detail_anggota/<?php echo $agt->nia ?>"><?php echo $agt->nia ?></a></td>
+                    <td><?php echo $agt->nia ?></a></td>
                     <td><?php echo $agt->no_ktp ?></td>
                     <td><?php echo $agt->nama ?></td>
                     <td><?php echo $agt->tempat_lahir ?></td>
@@ -56,5 +56,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-        <a href='toExcelAll'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
+        <a href='toExcelAllAnggota'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div>
