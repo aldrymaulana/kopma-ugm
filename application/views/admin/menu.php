@@ -7,6 +7,7 @@
                 <li class=""><?php echo anchor('admin/simpanan', '<i class="icon-list-alt"></i>Daftar Simpanan'); ?></li>
                 <li class=""><?php echo anchor('admin/pinjaman', '<i class="icon-list-alt"></i>Daftar Pinjaman') ?></li>
                 <li class=""><?php echo anchor('admin/angsuran', '<i class="icon-list-alt"></i>Daftar Angsuran') ?></li>
+                <li class=""><?php echo anchor('admin/saldo', '<i class="icon-list-alt"></i>Saldo Anggota'); ?></li>
                 <li class="nav-header">Data<br></li>
                 <li class=""><?php echo anchor('admin/profile', '<i class="icon-list-alt"></i>Profile') ?></li>
                 <li class=""><?php echo anchor('admin/user', '<i class="icon-list-alt"></i>Daftar User') ?></li>

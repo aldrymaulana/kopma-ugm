@@ -1016,6 +1016,15 @@ class Admin extends Controller {
         $this->load->view('admin/pdf_report', $data);
     }
 
+    
+    function saldo(){
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/saldo');
+        $this->load->view('template/footer');
+    }
+    
+    
 }
 
 ?>

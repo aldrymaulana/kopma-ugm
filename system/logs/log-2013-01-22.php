@@ -109,3 +109,9 @@ ERROR - 2013-01-22 12:02:30 --> Severity: Notice  --> Undefined variable: smpn D
 ERROR - 2013-01-22 12:02:30 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 23
 ERROR - 2013-01-22 12:05:25 --> Severity: Notice  --> Undefined variable: smpn D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 18
 ERROR - 2013-01-22 12:05:25 --> Severity: Warning  --> Invalid argument supplied for foreach() D:\xampp\htdocs\kopma\application\views\admin\excel_simpanan.php 18
+ERROR - 2013-01-22 17:42:07 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 28
+ERROR - 2013-01-22 17:42:08 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 36
+ERROR - 2013-01-22 17:42:14 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 28
+ERROR - 2013-01-22 17:42:14 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 36
+ERROR - 2013-01-22 17:42:20 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 28
+ERROR - 2013-01-22 17:42:20 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 36
