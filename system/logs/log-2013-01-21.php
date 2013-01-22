@@ -228,3 +228,10 @@ ERROR - 2013-01-21 17:00:33 --> Severity: Notice  --> Use of undefined constant 
 ERROR - 2013-01-21 17:00:33 --> Severity: Warning  --> Division by zero D:\xampp\htdocs\kopma\application\controllers\admin.php 410
 ERROR - 2013-01-21 17:00:39 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 28
 ERROR - 2013-01-21 17:00:39 --> Severity: Notice  --> Trying to get property of non-object D:\xampp\htdocs\kopma\application\controllers\home.php 36
+ERROR - 2013-01-21 18:27:55 --> 404 Page Not Found --> admin/logBackUp
+ERROR - 2013-01-21 18:31:46 --> 404 Page Not Found --> admin/logBackUp
+ERROR - 2013-01-21 18:34:11 --> 404 Page Not Found --> admin/logBackUp
+ERROR - 2013-01-21 18:37:00 --> 404 Page Not Found --> admin/logBackUp
+ERROR - 2013-01-21 18:38:45 --> 404 Page Not Found --> admin/create_backup
+ERROR - 2013-01-21 18:40:16 --> 404 Page Not Found --> admin/create_backup
+ERROR - 2013-01-21 18:48:02 --> 404 Page Not Found --> admin/logBackUpa

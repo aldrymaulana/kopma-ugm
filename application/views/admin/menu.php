@@ -14,9 +14,9 @@
                 <li class=""><?php echo anchor('admin/simpanan_pokok', '<i class="icon-list-alt"></i>Simpanan Pokok') ?></li>                
                 <li class="nav-header">Laporan</li>
                 <li class=""><?php echo anchor('admin/laporan_anggota', '<i class="icon-list-alt"></i>Laporan Anggota') ?></li>
-                <li class=""><?php echo anchor('admin/Laporan_simpanan', '<i class="icon-list-alt"></i>Laporan Simpanan') ?></li>
-                <li class=""><?php echo anchor('admin/Laporan_pinjaman', '<i class="icon-list-alt"></i>Laporan Pinjaman') ?></li>
-                <li class=""><?php echo anchor('admin/Laporan_angsuran', '<i class="icon-list-alt"></i>Laporan Angsuran') ?></li>
+                <li class=""><?php echo anchor('admin/laporan_simpanan', '<i class="icon-list-alt"></i>Laporan Simpanan') ?></li>
+                <li class=""><?php echo anchor('admin/laporan_pinjaman', '<i class="icon-list-alt"></i>Laporan Pinjaman') ?></li>
+                <li class=""><?php echo anchor('admin/laporan_angsuran', '<i class="icon-list-alt"></i>Laporan Angsuran') ?></li>
                 <li class="nav-header">user management</li>
                 <li class=""><?php echo anchor('home/logout', 'Logout', array('onclick' => "return confirm('Anda yakin akan logout?')")); ?></li>
             </ul>

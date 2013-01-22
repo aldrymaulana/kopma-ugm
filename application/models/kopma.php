@@ -22,6 +22,13 @@ class Kopma extends Model {
             return $get->result();
         }
     }
+    
+    function get_anggota_pag($config) {
+        $get = $this->db->get('vanggota',$config['per_page'],  $config['uri']);
+        if ($get->num_rows > 0) {
+            return $get->result();
+        }
+    }
 
     function get_anggota_nia($nia) {
         $this->db->where('nia', $nia);
@@ -170,7 +177,7 @@ class Kopma extends Model {
     function cari_simpanan() {
         $c = $this->input->post('cari');
         $this->db->like('nia', $c);
-        $query = $this->db->get('vpinjaman');
+        $query = $this->db->get('vanggota');
         if ($query->num_rows > 0) {
             return $query->result();
         }

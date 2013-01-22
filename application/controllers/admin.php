@@ -33,9 +33,24 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
+//    $config['base_url'] = 'http://localhost/simades/index.php/admin/pekerjaan/';
+//        $config['total_rows'] = $this->simades->get_pek();
+//        $config['per_page'] = 10;
+//        $config['num_links'] = 3;
+//        $config['uri'] = $this->uri->segment(3);
+//        $this->pagination->initialize($config);
+//        $data['pkj'] = $this->simades->get_pekerjaan($config);
+//        
+
     function anggota() {
-        $this->load->model('kopma');
-        $data['hasil'] = $this->kopma->get_anggota();
+        //pagination
+        $config['base_url'] = 'http://localhost/kopma/index.php/admin/anggota/';
+        $config['total_row'] = $this->kopma->get_anggota();
+        $config['per_page'] = 6;
+        $config['num_links'] = 3;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        $data['hasil'] = $this->kopma->get_anggota_pag($config);
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/anggota', $data);
@@ -333,8 +348,8 @@ class Admin extends Controller {
 
     function cari_simpanan() {
         $id = $this->input->post('search');
-        if ($data['hasil'] = $this->kopma->cari_simpanan($id)) {
-            $data['hasil'] = $this->kopma->cari_simpanan($id);
+        if ($data['hasil'] = $this->kopma->cari_simpanan()) {
+            $data['hasil'] = $this->kopma->cari_simpanan();
         } else {
             $data['result'] = array();
         }
@@ -696,17 +711,16 @@ class Admin extends Controller {
         $this->load->view('admin/menu');
         $this->load->view('admin/angsuran', $data);
         $this->load->view('template/footer');
-        }
+    }
 
-        function cari_angsuran() {
-        
+    function cari_angsuran() {
+
         if ($this->kopma->cari_angsuran()) {
             $data['hasil'] = $this->kopma->cari_angsuran();
             $c = $this->input->post('cari');
             $isi = $this->kopma->getUser($c);
             if ($isi == 0) {
                 redirect('admin/noResult');
-                
             } else {
                 if ($this->kopma->cari_simpanan($c)) {
                     $data['hasil'] = $this->kopma->cari_simpanan($c);
@@ -719,6 +733,7 @@ class Admin extends Controller {
                 $this->load->view('template/footer');
             }
         }
+    }
 
         function cari_angsuran_form() {
             $this->load->view('template/header');
@@ -924,8 +939,62 @@ class Admin extends Controller {
             $this->load->view('template/footer');
         }
 
-    }
-
+//        function logBackUpa() {
+//            $this->load->helper('download');
+//            $tanggal = date('YmdHis');
+//            $namaFile = $tanggal . 'log.sql.zip';
+//            $this->load->kopma();
+//            $backup = & $this->kopma->backup();
+//            force_download($namaFile, $backup);
+//        }
+//
+//        function logBackUp() {
+//            $this->load->helper('download');
+//            $namaFile = $this->tanggal . '_user_log.sql.zip';
+//            $this->load->dbutil();
+//            $tabel = array(
+//                'tables' => 'user',
+//                'newline' => "\n"
+//            );
+//            $backup = & $this->dbutil->backup($tabel);
+//            force_download($namaFile, $backup);
+//        }
+//
+//        function create_backup() {
+//            $this->load->library('zip');
+//            $path = 'assets/';
+//            $this->zip->read_dir($path);
+//            $result = $this->zip->archive('my_backup.zip');
+//            return $result;
+//        }
+    
+        function pdf(){
+ // Load library FPDF
+        $this->load->library('fpdf');
+         
+        // Load Database
+        $this->load->database();
+         
+        /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
+           dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+           perhatikan baris $config['fonts_path']= 'system/fonts/';
+           didalam file application/config/config.php
+        */           
+        define('FPDF_FONTPATH',$this->config->item('fonts_path'));
+         
+        // Load model "karyawan_model"
+        $this->load->model('kopma');
+         
+        /* Kita akses function get_all didalam karyawan_model
+           function get_all merupakan fungsi yang dibuat untuk mengambil
+           seluruh data karyawan didalam database.
+        */
+        $data['hasil'] = $this->kopma->get_anggota();
+         
+        // Load view "pdf_report" untuk menampilkan hasilnya       
+        $this->load->view('admin/pdf_report', $data);
+        
+        }
 }
 
 ?>

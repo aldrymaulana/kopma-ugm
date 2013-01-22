@@ -42,3 +42,64 @@ ERROR - 2013-01-22 07:05:07 --> 404 Page Not Found --> admin/logout
 ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$value E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 23
 ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 24
 ERROR - 2013-01-22 07:05:28 --> Severity: Notice  --> Undefined property: stdClass::$sisa E:\dump\kopma-ugm\application\views\admin\cari_angsuran2.php 30
+ERROR - 2013-01-22 07:57:11 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 07:58:21 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 07:58:31 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 08:00:26 --> Severity: Notice  --> Undefined variable: hasil D:\xampp\htdocs\kopma\application\controllers\admin.php 45
+ERROR - 2013-01-22 08:00:58 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 08:01:43 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 08:16:43 --> Severity: Notice  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: send of 5 bytes failed with errno=10053 An established connection was aborted by the software in your host machine.
+ D:\xampp\htdocs\kopma\system\database\drivers\mysql\mysql_driver.php 88
+ERROR - 2013-01-22 08:16:43 --> Severity: Warning  --> Missing argument 1 for Kopma::get_anggota(), called in D:\xampp\htdocs\kopma\application\controllers\admin.php on line 49 and defined D:\xampp\htdocs\kopma\application\models\kopma.php 26
+ERROR - 2013-01-22 08:16:43 --> Severity: Notice  --> Undefined variable: config D:\xampp\htdocs\kopma\application\models\kopma.php 27
+ERROR - 2013-01-22 08:16:43 --> Severity: Notice  --> Undefined variable: config D:\xampp\htdocs\kopma\application\models\kopma.php 27
+ERROR - 2013-01-22 08:30:00 --> 404 Page Not Found --> admin/logBackUpa
+ERROR - 2013-01-22 08:30:36 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:32:07 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:33:02 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:34:16 --> 404 Page Not Found --> admin/cari_angsuran_form
+ERROR - 2013-01-22 08:36:18 --> 404 Page Not Found --> admin/cari_angsuran_form
+ERROR - 2013-01-22 08:36:24 --> 404 Page Not Found --> admin/cari_angsuran_form
+ERROR - 2013-01-22 08:36:27 --> 404 Page Not Found --> admin/cari_angsuran_form
+ERROR - 2013-01-22 08:37:06 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:37:18 --> Severity: Notice  --> Undefined property: stdClass::$status D:\xampp\htdocs\kopma\application\views\admin\cari.php 24
+ERROR - 2013-01-22 08:37:18 --> Severity: Notice  --> Undefined property: stdClass::$jenis_anggota D:\xampp\htdocs\kopma\application\views\admin\cari.php 25
+ERROR - 2013-01-22 08:37:30 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:38:19 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:38:29 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:39:17 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:39:47 --> 404 Page Not Found --> admin/Laporan_simpanan
+ERROR - 2013-01-22 08:40:37 --> 404 Page Not Found --> admin/cari_angsuran_form
+ERROR - 2013-01-22 08:42:03 --> 404 Page Not Found --> admin/noResult
+ERROR - 2013-01-22 08:46:44 --> Severity: Notice  --> Undefined property: stdClass::$pokok D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 23
+ERROR - 2013-01-22 08:46:44 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 24
+ERROR - 2013-01-22 08:46:44 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 30
+ERROR - 2013-01-22 08:46:44 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 34
+ERROR - 2013-01-22 08:47:08 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:48:26 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:49:49 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:50:52 --> 404 Page Not Found --> admin/tolakPinjaman
+ERROR - 2013-01-22 08:59:46 --> 404 Page Not Found --> admin/laporan_anggota
+ERROR - 2013-01-22 08:59:58 --> 404 Page Not Found --> admin/laporan_simpanan
+ERROR - 2013-01-22 09:06:04 --> 404 Page Not Found --> admin/cari_form_angsuran
+ERROR - 2013-01-22 09:07:04 --> Severity: Notice  --> Undefined property: stdClass::$pokok D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 23
+ERROR - 2013-01-22 09:07:04 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 24
+ERROR - 2013-01-22 09:07:04 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 30
+ERROR - 2013-01-22 09:07:04 --> Severity: Notice  --> Undefined property: stdClass::$mengansur D:\xampp\htdocs\kopma\application\views\admin\cari_angsuran2.php 34
+ERROR - 2013-01-22 09:09:56 --> Severity: Notice  --> Undefined property: stdClass::$status D:\xampp\htdocs\kopma\application\views\admin\cari.php 24
+ERROR - 2013-01-22 09:09:57 --> Severity: Notice  --> Undefined property: stdClass::$jenis_anggota D:\xampp\htdocs\kopma\application\views\admin\cari.php 25
+ERROR - 2013-01-22 09:33:07 --> Severity: Notice  --> Undefined property: stdClass::$status D:\xampp\htdocs\kopma\application\views\admin\cari.php 24
+ERROR - 2013-01-22 09:33:07 --> Severity: Notice  --> Undefined property: stdClass::$jenis_anggota D:\xampp\htdocs\kopma\application\views\admin\cari.php 25
+ERROR - 2013-01-22 15:46:50 --> Severity: Warning  --> include(timesb.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 15:46:50 --> Severity: Warning  --> include() [<a href='function.include'>function.include</a>]: Failed opening 'timesb.php' for inclusion (include_path='.;\xampp\php\PEAR') D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 09:47:31 --> 404 Page Not Found --> admin/function.include
+ERROR - 2013-01-22 09:49:39 --> Severity: Notice  --> date_default_timezone_set() [<a href='function.date-default-timezone-set'>function.date-default-timezone-set</a>]: Timezone ID 'local' is invalid D:\xampp\htdocs\kopma\application\views\admin\pdf_report.php 4
+ERROR - 2013-01-22 09:49:39 --> Severity: Warning  --> include(timesb.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 09:49:39 --> Severity: Warning  --> include() [<a href='function.include'>function.include</a>]: Failed opening 'timesb.php' for inclusion (include_path='.;\xampp\php\PEAR') D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 15:49:49 --> Severity: Warning  --> include(timesb.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541
+ERROR - 2013-01-22 15:49:49 --> Severity: Warning  --> include() [<a href='function.include'>function.include</a>]: Failed opening 'timesb.php' for inclusion (include_path='.;\xampp\php\PEAR') D:\xampp\htdocs\kopma\system\libraries\fpdf.php 541

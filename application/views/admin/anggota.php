@@ -14,6 +14,7 @@
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
+                <th>NO</th>
                 <th>Nia</th>
                 <th>Nama</th>
                 <th>Alamat</th>
@@ -25,8 +26,10 @@
             </tr>
         </thead>
         <tbody>
+            <?php $no = $this->uri->segment(3) + 1; ?>
             <?php foreach ($hasil as $agt) : ?>
                 <tr>
+                    <td><?php echo $no ?></td>
                     <td><a href="<?php echo site_url() ?>/admin/detail_anggota/<?php echo $agt->nia ?>"><?php echo $agt->nia ?></a></td>
                     <td><?php echo $agt->nama ?></td>
                     <td><?php echo $agt->alamat_lengkap ?></td>
@@ -40,8 +43,14 @@
                 ?></center>
             </td>
             </tr>
+            <?php $no++ ?>
         <?php endforeach; ?>
         </tbody>
     </table>
-        <?php echo $this->pagination->create_links(); ?>
+   <?php echo $this->pagination->create_links(); ?>
+   <?php echo form_open('admin/logBackUpa') ?> 
+        <button type="submit" class="btn">download</button>
+        <?php echo form_close(); ?>
+         
+<a href='pdf'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
 </div>
