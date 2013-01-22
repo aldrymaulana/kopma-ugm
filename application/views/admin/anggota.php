@@ -47,10 +47,10 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-   <?php echo $this->pagination->create_links(); ?>
-   <?php echo form_open('admin/logBackUpa') ?> 
-        <button type="submit" class="btn">download</button>
-        <?php echo form_close(); ?>
-         
-<a href='pdf'><img src="../../assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
+    <?php echo $this->pagination->create_links(); ?>
+    <?php echo form_open('admin/logBackUpa') ?> 
+    <button type="submit" class="btn">download</button>
+    <?php echo form_close(); ?>
+
+    <a href='pdf'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
 </div>

@@ -24,12 +24,16 @@
             <td><center><?php echo $pnj->nia ?></center></td>
             <td><center><?php echo $pnj->nama ?></center></td>
             <td><center><?php echo $pnj->value ?></center></td>
-            <td><center><?php if($pnj->sisa <= 0){echo 'Sudah Lunas';}else{echo $pnj->sisa;} ?></center></td>
+            <td><center><?php if ($pnj->sisa <= 0) {
+                echo 'Sudah Lunas';
+            } else {
+                echo $pnj->sisa;
+            } ?></center></td>
             <td><center><?php echo $pnj->tanggal ?></center></td>
             </tr>
-            <?php $no++ ?>
-        <?php endforeach; ?>
+        <?php $no++ ?>
+<?php endforeach; ?>
         </tbody>
     </table>
-
+<?php echo $this->pagination->create_links(); ?>
 </div>

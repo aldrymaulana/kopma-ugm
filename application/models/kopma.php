@@ -23,6 +23,11 @@ class Kopma extends Model {
         }
     }
 
+    function cAnggota() {
+        $data = $this->db->get('anggota');
+        return $data->num_rows();
+    }
+
     function get_anggota_pag($config) {
         $get = $this->db->get('vanggota', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
@@ -120,9 +125,9 @@ class Kopma extends Model {
         }
     }
 
-    function get_simpanan() {
-        $this->db->order_by('id_simpanan');
-        $get = $this->db->get('vsimpanan');
+    function get_simpanan($config) {
+        $this->db->order_by('id_simpanan', 'desc');
+        $get = $this->db->get('vsimpanan', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
             return $get->result();
         }
@@ -211,8 +216,8 @@ class Kopma extends Model {
         }
     }
 
-    function get_pinjaman() {
-        $get = $this->db->get('vpinjaman');
+    function get_pinjaman($config) {
+        $get = $this->db->get('vpinjaman', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
             return $get->result();
         }
@@ -230,8 +235,8 @@ class Kopma extends Model {
         $this->db->insert('simpanan', $post);
     }
 
-    function get_angsuran() {
-        $data = $this->db->get('vangsuran');
+    function get_angsuran($config) {
+        $data = $this->db->get('vangsuran', $config['per_page'], $config['uri']);
         if ($data->num_rows > 0) {
             return $data->result();
         }
@@ -347,11 +352,31 @@ class Kopma extends Model {
         }
     }
 
-    function saldo() {
-        $data = $this->db->get('vsaldo');
+    function saldo($config) {
+        $data = $this->db->get('vsaldo', $config['per_page'], $config['uri']);
         if ($data->num_rows > 0) {
             return $data->result();
         }
+    }
+
+    function cSimpanan() {
+        $data = $this->db->get('vsimpanan');
+        return $data->num_rows();
+    }
+
+    function cPinjaman() {
+        $data = $this->db->get('vpinjaman');
+        return $data->num_rows();
+    }
+
+    function cAngsuran() {
+        $data = $this->db->get('vangsuran');
+        return $data->num_rows();
+    }
+
+    function cSaldo() {
+        $data = $this->db->get('vsaldo');
+        return $data->num_rows();
     }
 
 }

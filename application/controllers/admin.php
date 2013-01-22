@@ -43,13 +43,17 @@ class Admin extends Controller {
 //        
 
     function anggota() {
-        $config['base_url'] = 'http://localhost/kopma/index.php/admin/anggota/';
-        $config['total_row'] = $this->kopma->get_anggota();
-        $config['per_page'] = 6;
-        $config['num_links'] = 3;
+        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/anggota/';
+        $config['total_rows'] = $this->kopma->cAnggota();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
         $config['uri'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
-        $data['hasil'] = $this->kopma->get_anggota_pag($config);
+        if ($this->kopma->get_anggota_pag($config)) {
+            $data['hasil'] = $this->kopma->get_anggota_pag($config);
+        } else {
+            $data['hasil'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/anggota', $data);
@@ -212,8 +216,14 @@ class Admin extends Controller {
     }
 
     function simpanan() {
-        if ($this->kopma->get_simpanan()) {
-            $data['smpn'] = $this->kopma->get_simpanan();
+        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/simpanan/';
+        $config['total_rows'] = $this->kopma->cSimpanan();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_simpanan($config)) {
+            $data['smpn'] = $this->kopma->get_simpanan($config);
         } else {
             $data['smpn'] = array();
         }
@@ -590,8 +600,14 @@ class Admin extends Controller {
     }
 
     function pinjaman() {
-        if ($this->kopma->get_pinjaman()) {
-            $data['pinjaman'] = $this->kopma->get_pinjaman();
+        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/pinjaman/';
+        $config['total_rows'] = $this->kopma->cPinjaman();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_pinjaman($config)) {
+            $data['pinjaman'] = $this->kopma->get_pinjaman($config);
         } else {
             $data['pinjaman'] = array();
         }
@@ -707,8 +723,14 @@ class Admin extends Controller {
     }
 
     function angsuran() {
-        if ($this->kopma->get_angsuran()) {
-            $data['angsuran'] = $this->kopma->get_angsuran();
+        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/angsuran/';
+        $config['total_rows'] = $this->kopma->cAngsuran();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_angsuran($config)) {
+            $data['angsuran'] = $this->kopma->get_angsuran($config);
         } else {
             $data['angsuran'] = array();
         }
@@ -1017,8 +1039,14 @@ class Admin extends Controller {
     }
 
     function saldo() {
-        if ($this->kopma->saldo()) {
-            $data['saldo'] = $this->kopma->saldo();
+        $config['base_url'] = $this->config->config['base_url'] .'/index.php/admin/saldo/';
+        $config['total_rows'] = $this->kopma->cSaldo();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->saldo($config)) {
+            $data['saldo'] = $this->kopma->saldo($config);
         } else {
             $data['saldo'] = array();
         }

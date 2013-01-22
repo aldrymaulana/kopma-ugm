@@ -27,4 +27,5 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+    <?php echo $this->pagination->create_links(); ?>
 </div><!--/row-->
