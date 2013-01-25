@@ -1100,7 +1100,7 @@ class Admin extends Controller {
         $this->load->view('template/header');
         $this->load->view('admin/excel_angsuran', $data);
     }
-    
+
     function tolakPinjaman() {
         $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
         $this->load->view('template/header');
@@ -1181,6 +1181,44 @@ class Admin extends Controller {
         $this->load->view('admin/menu');
         $this->load->view('admin/saldo', $data);
         $this->load->view('template/footer');
+    }
+
+//    function dump() {
+//        $this->load->dbutil();
+//        $this->load->helper('download');
+//        $backup = & $this->dbutil->backup();
+//        $this->load->helper('file');
+//        write_file('/path/to/tes.zips', $backup);
+//        force_download('tes.zip',$backup);
+//
+//        $prefs = array(
+//            'tables' => array(), // Array of tables to backup.
+//            'ignore' => array(), // List of tables to omit from the backup
+//            'format' => 'zip', // gzip, zip, txt
+//            'filename' => '', // File name - NEEDED ONLY WITH ZIP FILES
+//            'add_drop' => TRUE, // Whether to add DROP TABLE statements to backup file
+//            'add_insert' => TRUE, // Whether to add INSERT data to backup file
+//            'newline' => "\n"               // Newline character used in backup file
+//        );
+//
+//        $this->dbutil->backup($prefs);
+//    }
+
+    function dump() {
+        $this->load->helper('download');
+        $name = date('y-m-d');
+        $prefs = array(
+            'tables' => array(), // Array of tables to backup.
+            'ignore' => array(), // List of tables to omit from the backup
+            'format' => 'zip', // gzip, zip, txt
+            'filename' => $name, // File name - NEEDED ONLY WITH ZIP FILES
+            'add_drop' => TRUE, // Whether to add DROP TABLE statements to backup file
+            'add_insert' => TRUE, // Whether to add INSERT data to backup file
+            'newline' => "\n"               // Newline character used in backup file
+        );
+        $this->load->dbutil();
+        $backup = & $this->dbutil->backup();
+        force_download($name, $backup);
     }
 
 }

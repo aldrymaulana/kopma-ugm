@@ -48,7 +48,7 @@
         </tbody>
     </table>
     <?php echo $this->pagination->create_links(); ?>
-    <?php echo form_open('admin/logBackUpa') ?> 
+    <?php echo form_open('admin/dump') ?> 
     <button type="submit" class="btn">download</button>
     <?php echo form_close(); ?>
 

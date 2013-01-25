@@ -37,7 +37,7 @@ class Kopma extends Model {
 
     function get_anggota_nia($nia) {
         $this->db->where('nia', $nia);
-        $get = $this->db->get("vanggota order by 'nia'");
+        $get = $this->db->get('vanggota');
         if ($get->num_rows > 0) {
             return $get->result();
         }
