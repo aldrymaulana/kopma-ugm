@@ -7,6 +7,7 @@
                 <li class=""><?php echo anchor('petugas/simpanan', '<i class="icon-list-alt"></i>Daftar Simpanan'); ?></li>
                 <li class=""><?php echo anchor('petugas/pinjaman', '<i class="icon-list-alt"></i>Daftar Pinjaman') ?></li>
                 <li class=""><?php echo anchor('petugas/angsuran', '<i class="icon-list-alt"></i>Daftar Angsuran') ?></li>
+                <li class=""><?php echo anchor('petugas/saldo', '<i class="icon-list-alt"></i>Saldo Anggota') ?></li>
                 <li class="nav-header">Data<br></li>
                 <li class=""><?php echo anchor('petugas/profile', '<i class="icon-list-alt"></i>Profile ') ?></li>
                 <li class=""><?php echo anchor('petugas/simpanan_wajib', '<i class="icon-list-alt"></i>Simpanan Wajib') ?></li>

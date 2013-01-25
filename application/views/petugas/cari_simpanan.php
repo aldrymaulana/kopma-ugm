@@ -1,6 +1,6 @@
 <div class="span10">
     <div class="span6">
-        <center><h2>Cari Anggota</h2></center>
+        <h2>Cari Anggota</h2>
         <div class="row-fluid">
             <div class="well">
                 <div class="form-search">

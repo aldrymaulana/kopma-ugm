@@ -1,11 +1,11 @@
 <div class="span10">
 
     <?php
-    echo form_open('admin/pinjaman_tambah', 'tambah Pinjaman', 'class="well"');
+    echo form_open('admin/form_angsuran', 'tambah angsuran', 'class="well"');
     ?>
-    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah Pinjaman</button>
+    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah Angsuran</button>
     <?php echo form_close() ?>
-    <table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
                 <th><center>NIA</center></th>
@@ -21,21 +21,13 @@
                     <td><center><?php echo $agt->nia ?></center></td>
             <td><center><?php echo $agt->nama ?></center></td>
             <td><center><?php echo $agt->pokok ?></center></td>
-            <td><center><?php if ($agt->mengansur == 0) ?> 
-            <td><center><?php echo $agt->value ?></center></td>
-            <td><center><?php
-            if ($agt->sisa == 0) {
+            <td><center><?php if ($agt->mengansur == 0) {
                 echo 'Lunas';
             } else {
                 echo $agt->mengansur;
-            }
-            ?></center></td>
+            } ?></center></td>
             <td><center>
                 <?php if($agt->mengansur!=0){echo anchor('admin/form_angsuran/'.$agt->id_pinjaman,'Bayar angsuran');}?>
-
-            <?php if ($agt->sisa != 0) {
-                echo anchor('admin/form_angsuran/' . $agt->id_pinjaman, 'Bayar angsuran');
-            } ?>
             </center></td>
             </tr>
 <?php endforeach; ?>

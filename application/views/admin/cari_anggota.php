@@ -1,16 +1,5 @@
 <div class="span10">
     <center><h2>Data Anggota</h2></center>
-    <div class="form-search">
-        <?php echo form_open('admin/cari_anggota') ?> 
-        <input class="input-medium search-query text" placeholder="Masukkan NIA"  name="cari">
-        <button type="submit" class="btn">Search</button>
-        <?php echo form_close(); ?>
-    </div> 
-    <?php
-    echo form_open('admin/anggota_tambah', 'tambah anggota', 'class="well"');
-    ?>
-    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah Anggota</button>
-    <?php echo form_close() ?>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -47,10 +36,4 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <?php echo $this->pagination->create_links(); ?>
-    <?php echo form_open('admin/logBackUpa') ?> 
-    <button type="submit" class="btn">download</button>
-    <?php echo form_close(); ?>
-
-    <a href='pdf'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
 </div>

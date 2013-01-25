@@ -1,6 +1,12 @@
+<?php
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=exceldataPinjaman.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
 <div class="span10">
     <center><h2>Data Pinjaman</h2></center>
-     <table class="table table-striped table-bordered table-condensed">
+    <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
                 <th><center>No Ref. Pinjaman</center></th>
@@ -30,7 +36,4 @@
 <?php endforeach; ?>
         </tbody>
     </table>
-<?php echo $this->pagination->create_links(); ?>
-    <br>
-    <a href='toExcelAllPinjaman'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div>

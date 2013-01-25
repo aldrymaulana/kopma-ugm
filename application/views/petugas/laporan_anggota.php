@@ -57,6 +57,5 @@
         </tbody>
     </table>
     <?php echo $this->pagination->create_links(); ?>
-    <br>
     <a href='toExcelAllAnggota'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div>

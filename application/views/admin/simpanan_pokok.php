@@ -20,9 +20,7 @@
 
             <td>
             <center> <?php
-            echo anchor('admin/jenis_edit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
-            echo ' | ';
-            echo anchor('admin/jenis_hapus/' . $simp->id_jenis_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
+            echo anchor('admin/simpanan_pokok_edit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
                 ?></center>
             </td>
             </tr>

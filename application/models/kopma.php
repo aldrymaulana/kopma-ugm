@@ -139,14 +139,32 @@ class Kopma extends Model {
             return $get->result();
         }
     }
-
+    
+    function simpanan_pokok_edit($id) {
+        $this->db->where('id_simpanan', $id);
+        $data = $this->db->get('simpanan');
+        if ($data->num_rows > 0) {
+            return $data->result();
+        }
+    }
+    
+    
+    
     function get_simpanan_wajib() {
         $get = $this->db->get('vsimpanan_wajib');
         if ($get->num_rows > 0) {
             return $get->result();
         }
     }
-
+    
+    function simpanan_wajib_edit($id) {
+        $this->db->where('id_simpanan', $id);
+        $data = $this->db->get('simpanan');
+        if ($data->num_rows > 0) {
+            return $data->result();
+        }
+    }
+    
     function simpanan_edit($id) {
         $this->db->where('id_simpanan', $id);
         $data = $this->db->get('simpanan');
@@ -194,6 +212,15 @@ class Kopma extends Model {
     }
 
     function cari_pinjaman() {
+        $c = $this->input->post('cari');
+        $this->db->like('nia', $c);
+        $query = $this->db->get('anggota');
+        if ($query->num_rows > 0) {
+            return $query->result();
+        }
+    }
+    
+      function cari_anggota() {
         $c = $this->input->post('cari');
         $this->db->like('nia', $c);
         $query = $this->db->get('anggota');
@@ -251,6 +278,15 @@ class Kopma extends Model {
         }
     }
 
+    function cari_angggota() {
+        $c = $this->input->post('cari');
+        $this->db->like('nia', $c);
+        $query = $this->db->get('vanggota');
+        if ($query->num_rows > 0) {
+            return $query->result();
+        }
+    }
+    
     function angsuran_tambah($data) {
         $this->db->insert('angsuran', $data);
     }
@@ -337,6 +373,13 @@ class Kopma extends Model {
         }
     }
 
+    function toExcelAllAngsuran() {
+        $get = $this->db->get('vangsuran');
+        if ($get->num_rows > 0) {
+            return $get->result();
+        }
+    }
+    
     function toExcelAllSimpanan() {
         $get = $this->db->get('vsimpanan');
         if ($get->num_rows > 0) {
@@ -344,6 +387,13 @@ class Kopma extends Model {
         }
     }
 
+      function toExcelAllPinjaman() {
+        $get = $this->db->get('vpinjaman');
+        if ($get->num_rows > 0) {
+            return $get->result();
+        }
+    }
+    
     function getUser($c) {
         $this->db->where('nia', $c);
         $data = $this->db->get('vpinjaman');

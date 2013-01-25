@@ -42,6 +42,19 @@ class Admin extends Controller {
 //        $data['pkj'] = $this->simades->get_pekerjaan($config);
 //        
 
+    function cari_anggota() {
+
+        if ($data['hasil'] = $this->kopma->cari_anggota()) {
+            $data['hasil'] = $this->kopma->cari_anggota();
+        } else {
+            $data['result'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/cari_anggota', $data);
+        $this->load->view('template/footer');
+    }
+
     function anggota() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/anggota/';
         $config['total_rows'] = $this->kopma->cAnggota();
@@ -249,6 +262,28 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
+    function simpedit() {
+        $this->load->model('kopma');
+        $data['smp'] = $this->kopma->simpanan_pokok_edit($id);
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/simpanan_pokok_edit', $data);
+        $this->load->view('template/footer');
+    }
+
+    function simpanan_pokok_update() {
+        $this->form_validation->set_rules('jenis_simpanan', 'jenis simpanan', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            
+        } else {
+            $pkk = array(
+                'jenis_simpanan' => $this->input->post('jenis_simpanan')
+            );
+            $this->kopma->simpanan_pokok_update($id);
+            redirect('admin/simpanan_pokok');
+        }
+    }
+
     function simpanan_wajib() {
         $this->load->model('kopma');
         $data['jenis'] = $this->kopma->get_simpanan_wajib();
@@ -362,7 +397,7 @@ class Admin extends Controller {
     }
 
     function cari_simpanan() {
-        $id = $this->input->post('search');
+
         if ($data['hasil'] = $this->kopma->cari_simpanan()) {
             $data['hasil'] = $this->kopma->cari_simpanan();
         } else {
@@ -399,15 +434,15 @@ class Admin extends Controller {
 
     //belum fix
     function simpanan_edit($id) {
-        $id = $this->uri->segment(4);
-        if ($this->kopma->pinjaman_edit($id)) {
-            $data['simpanan'] = $this->kopma->pinjaman_edit($id);
+        $id = $this->uri->segment(3);
+        if ($this->kopma->simpanan_edit($id)) {
+            $data['data'] = $this->kopma->simpanan_edit($id);
         } else {
-            $data['simpanan'] = array();
+            $data['data'] = array();
         }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
-        $this->load->view('admin/simpanan_edit', $data);
+        $this->load->view('admin/simpanan_wajib_edit', $data);
         $this->load->view('template/footer');
     }
 
@@ -741,7 +776,43 @@ class Admin extends Controller {
     }
 
     function cari_angsuran() {
+        if ($this->kopma->cari_angsuran()) {
+            $data['hasil'] = $this->kopma->cari_angsuran();
+        } else {
+            $data['hasil'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/cari_angsuran2', $data);
+        $this->load->view('template/footer');
+    }
 
+    function cari_angsuran_form() {
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/cari_angsuran');
+        $this->load->view('template/footer');
+    }
+
+    function sangsuran() {
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/angsuran/';
+        $config['total_rows'] = $this->kopma->cAngsuran();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_angsuran($config)) {
+            $data['angsuran'] = $this->kopma->get_angsuran($config);
+        } else {
+            $data['angsuran'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/angsuran', $data);
+        $this->load->view('template/footer');
+    }
+
+    function scari_angsuran() {
         if ($this->kopma->cari_angsuran()) {
             $data['hasil'] = $this->kopma->cari_angsuran();
             $c = $this->input->post('cari');
@@ -749,8 +820,8 @@ class Admin extends Controller {
             if ($isi == 0) {
                 redirect('admin/noResult');
             } else {
-                if ($this->kopma->cari_simpanan($c)) {
-                    $data['hasil'] = $this->kopma->cari_simpanan($c);
+                if ($this->kopma->cari_angsuran($c)) {
+                    $data['hasil'] = $this->kopma->cari_angsuran($c);
                 } else {
                     $data['hasil'] = array();
                 }
@@ -762,7 +833,7 @@ class Admin extends Controller {
         }
     }
 
-    function cari_angsuran_form() {
+    function scari_angsuran_form() {
         $this->load->view('template/header');
         $this->load->view('admin/menu');
         $this->load->view('admin/cari_angsuran');
@@ -866,7 +937,7 @@ class Admin extends Controller {
     function laporan_simpanan() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/laporan_simpanan/';
         $config['total_rows'] = $this->kopma->cLapSim();
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
         $config['num_links'] = 1;
         $config['uri'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
@@ -882,16 +953,38 @@ class Admin extends Controller {
     }
 
     function laporan_pinjaman() {
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/pinjaman/';
+        $config['total_rows'] = $this->kopma->cPinjaman();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_pinjaman($config)) {
+            $data['pinjaman'] = $this->kopma->get_pinjaman($config);
+        } else {
+            $data['pinjaman'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
-        $this->load->view('admin/laporan_pinjaman');
+        $this->load->view('admin/laporan_pinjaman', $data);
         $this->load->view('template/footer');
     }
 
     function laporan_angsuran() {
+        $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/angsuran/';
+        $config['total_rows'] = $this->kopma->cAngsuran();
+        $config['per_page'] = 10;
+        $config['num_links'] = 1;
+        $config['uri'] = $this->uri->segment(3);
+        $this->pagination->initialize($config);
+        if ($this->kopma->get_angsuran($config)) {
+            $data['angsuran'] = $this->kopma->get_angsuran($config);
+        } else {
+            $data['angsuran'] = array();
+        }
         $this->load->view('template/header');
         $this->load->view('admin/menu');
-        $this->load->view('admin/laporan_angsuran');
+        $this->load->view('admin/laporan_angsuran', $data);
         $this->load->view('template/footer');
     }
 
@@ -988,6 +1081,26 @@ class Admin extends Controller {
         $this->load->view('admin/excel_simpanan', $data);
     }
 
+    function toExcelAllPinjaman() {
+        if ($this->kopma->ToExcelAllPinjaman()) {
+            $data['pinjaman'] = $this->kopma->ToExcelAllPinjaman();
+        } else {
+            $data['pinjaman'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/excel_pinjaman', $data);
+    }
+
+    function toExcelAllAngsuran() {
+        if ($this->kopma->ToExcelAllAngsuran()) {
+            $data['angsuran'] = $this->kopma->ToExcelAllAngsuran();
+        } else {
+            $data['angsuran'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/excel_angsuran', $data);
+    }
+    
     function tolakPinjaman() {
         $data['isi'] = '<div class="alert alert-info">Pinjaman ditolak, user ini masih memiliki tunggakan.</div>';
         $this->load->view('template/header');

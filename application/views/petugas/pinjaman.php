@@ -8,13 +8,12 @@
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-        <th><center>No Ref. Pinjaman</center></th>
+                <th><center>No Ref. Pinjaman</center></th>
         <th><center>NIA</center></th>
         <th><center>Nama</center></th>
         <th><center>Pokok Pinjaman</center></th>
         <th><center>Sisa Pinjaman</center></th>
         <th><center>Tanggal Transaksi</center></th>
-        <th><center>Action</center></th>
         </tr>
         </thead>
         <tbody>
@@ -25,19 +24,16 @@
             <td><center><?php echo $pnj->nia ?></center></td>
             <td><center><?php echo $pnj->nama ?></center></td>
             <td><center><?php echo $pnj->value ?></center></td>
-            <td><center><?php if($pnj->sisa <= 0){echo 'Sudah Lunas';}else{echo $pnj->sisa;} ?></center></td>
+            <td><center><?php if ($pnj->sisa <= 0) {
+                echo 'Sudah Lunas';
+            } else {
+                echo $pnj->sisa;
+            } ?></center></td>
             <td><center><?php echo $pnj->tanggal ?></center></td>
-            <td>
-            <center><?php
-            echo anchor('petugas/pinjaman_edit/' . $pnj->id_pinjaman, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
-            echo ' | ';
-            echo anchor('petugas/pinjaman_hapus/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
-                ?></center>
-            </td>
             </tr>
-            <?php $no++ ?>
-        <?php endforeach; ?>
+        <?php $no++ ?>
+<?php endforeach; ?>
         </tbody>
     </table>
-
+<?php echo $this->pagination->create_links(); ?>
 </div>

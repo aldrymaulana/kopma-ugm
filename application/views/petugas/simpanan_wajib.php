@@ -17,14 +17,11 @@
                     <td><center><?php echo $no ?></center></td>
     <td><center><?php echo $simp->jenis_simpanan ?></center></td>
     <td><center><?php echo $simp->value ?></center></td>
-
-                    <td>
-                       <center> <?php
-                        echo anchor('petugas/jenis_edit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
-                        echo ' | ';
-                        echo anchor('petugas/jenis_hapus/' . $simp->id_jenis_simpanan, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
-                                ?></center>
-                    </td>
+<td>
+                    <center> <?php
+            echo anchor('petugas/simpanan_pokok_wajib/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
+                ?></center>
+            </td>
                 </tr>
                 <?php $no++ ?>
             <?php endforeach; ?>

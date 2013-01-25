@@ -1,14 +1,15 @@
+<?php
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=exceldataAngsuran.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
 <div class="span10">
     <center> <h2>Data Angsuran</h2></center>
-    <?php
-    echo form_open('petugas/cari_angsuran_form', 'Tambah Angsuran', 'class="well"');
-    ?>
-    <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> Tambah Angsuran</button>
-    <?php echo form_close() ?>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-         <th><center>No Ref. Angsuran</center></th>
+        <th><center>No Ref. Angsuran</center></th>
         <th><center>NIA</center></th>
         <th><center>Mengansur</center></th>
         <th><center>Petugas penerima</center></th>
@@ -18,7 +19,7 @@
         <tbody>
             <?php foreach ($angsuran as $ans) : ?>
                 <tr>
-                    <td><center><a href="<?php echo site_url() ?>/petugas/detail_angsuran/<?php echo $ans->id_angsuran ?>"><?php echo $ans->id_angsuran ?></a></center></td>
+                    <td><center><a href="<?php echo site_url() ?>/detail/detail_angsuran/<?php echo $ans->id_angsuran ?>"><?php echo $ans->id_angsuran ?></a></center></td>
             <td><center><?php echo $ans->nia ?></center></td>
             <td><center><?php echo $ans->mengansur ?></center></td>
             <td><center><?php echo $ans->username ?></center></td>
@@ -28,4 +29,6 @@
         </tbody>
     </table>
     <?php echo $this->pagination->create_links(); ?>
+        <br>
+    <a href='toExcelAllAngsuran'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
 </div><!--/row-->
