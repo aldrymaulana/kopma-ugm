@@ -9,22 +9,22 @@
         <thead>
             <tr>
                 <th><center>ID Nota simpanan</center></th>
-        <th><center>Nia</center></th>
+        <th><center>NIA</center></th>
         <th><center>Nama</center></th>
-        <th><center>Jenis Simpanan</center></th>
-        <th><center>Bulan Bayar</center></th>
-        <th><center>Tahun</center></th>
+        <th><center>Tanggal</center></th>
+        <th><center>Petugas Penerima</center></th>
+        <th><center>Action</center></th>
         </tr>
         </thead>
         <tbody>
             <?php foreach ($smpn as $smp) : ?>
                 <tr>
-                    <td><center><a href="<?php echo site_url() ?>/detail/detail_simpanan/<?php echo $smp->id_simpanan ?>"><?php echo $smp->id_simpanan ?></a></center></td>
+                    <td><center><?php echo anchor('admin/notaDetail/' . $smp->id_nota, $smp->id_nota) ?></center></td>
             <td><center><?php echo $smp->nia ?></center></td>
-            <td><center><?php echo $smp->nama ?></center></td>
-            <td><center><?php echo $smp->jenis_simpanan ?></center></td>
-            <td><center><?php echo $smp->bulan ?></center></td>
-            <td><center><?php echo $smp->tahun ?></center></td>
+            <td><?php echo $smp->nama ?></td>
+            <td><center><?php echo $smp->tanggal ?></center></td>
+            <td><center><?php echo $smp->username ?></center></td>
+            <td><center><?php echo anchor('', 'Edit') ?> | <?php echo anchor('admin/notaDel/' . $smp->id_nota, 'Delete') ?></center></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

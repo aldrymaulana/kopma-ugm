@@ -33,8 +33,6 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
-
-
     function cari_anggota() {
 
         if ($data['hasil'] = $this->kopma->cari_anggota()) {
@@ -66,13 +64,12 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
-    
-    function detail_pinjaman(){
+    function detail_pinjaman() {
 
-        $id= $this->uri->segment(3);
-         if($this->kopma->getPinjaman($id)){
+        $id = $this->uri->segment(3);
+        if ($this->kopma->getPinjaman($id)) {
             $data['pinjaman'] = $this->kopma->getPinjaman($id);
-        }else {
+        } else {
             $data['pinjaman'] = array();
         }
 
@@ -81,7 +78,7 @@ class Admin extends Controller {
         $this->load->view('admin/detail_pinjaman', $data);
         $this->load->view('template/footer');
     }
-    
+
     function detail_anggota() {
         $nia = $this->uri->segment(3);
         if ($this->kopma->get_anggota_nia($nia)) {
@@ -240,7 +237,7 @@ class Admin extends Controller {
     function simpanan() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/simpanan/';
         $config['total_rows'] = $this->kopma->cSimpanan();
-        $config['per_page'] = 10;
+        $config['per_page'] = 5;
         $config['num_links'] = 1;
         $config['uri'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
@@ -1174,7 +1171,7 @@ class Admin extends Controller {
         $this->load->view('admin/pdf_report', $data);
     }
 
-        function pdf_detail_pinjaman() {
+    function pdf_detail_pinjaman() {
         // Load library FPDF
         $this->load->library('fpdf');
         // Load Database
@@ -1194,15 +1191,14 @@ class Admin extends Controller {
           function get_all merupakan fungsi yang dibuat untuk mengambil
           seluruh data karyawan didalam database.
          */
-        $id=$this->uri->segment(3);
+        $id = $this->uri->segment(3);
         $data['pinjaman'] = $this->kopma->getPinjaman($id);
 
         // Load view "pdf_report" untuk menampilkan hasilnya       
         $this->load->view('admin/pdf_detail_pinjaman', $data);
     }
 
-
-     function pdf_laporan_pinjaman() {
+    function pdf_laporan_pinjaman() {
         // Load library FPDF
         $this->load->library('fpdf');
         // Load Database
@@ -1228,9 +1224,8 @@ class Admin extends Controller {
         // Load view "pdf_report" untuk menampilkan hasilnya       
         $this->load->view('admin/pdf_laporan_pinjaman', $data);
     }
-     
-    
-    function pdf_laporan_angsuran(){
+
+    function pdf_laporan_angsuran() {
         // Load library FPDF
         $this->load->library('fpdf');
         // Load Database
@@ -1256,8 +1251,7 @@ class Admin extends Controller {
         // Load view "pdf_report" untuk menampilkan hasilnya       
         $this->load->view('admin/pdf_laporan_angsuran', $data);
     }
-     
-    
+
     function pdf_laporan_simpanan() {
         // Load library FPDF
         $this->load->library('fpdf');
@@ -1283,11 +1277,8 @@ class Admin extends Controller {
 
         // Load view "pdf_report" untuk menampilkan hasilnya       
         $this->load->view('admin/pdf_laporan_simpanan', $data);
-        
-        
     }
 
-    
     function saldo() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/saldo/';
         $config['total_rows'] = $this->kopma->cSaldo();
@@ -1408,6 +1399,25 @@ class Admin extends Controller {
             $this->kopma->simpananWajibupdate($simpanan);
             redirect('admin/simpanan_wajib');
         }
+    }
+
+    function notaDetail() {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->notaDetail($id)) {
+            $data['nota'] = $this->kopma->notaDetail($id);
+        } else {
+            $data['nota'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/notaDetail', $data);
+        $this->load->view('template/footer');
+    }
+
+    function notaDel() {
+        $id = $this->uri->segment(3);
+        $this->kopma->notaDel($id);
+        redirect('admin/simpanan');
     }
 
 }

@@ -42,10 +42,10 @@ class Kopma extends Model {
             return $get->result();
         }
     }
-    
-    function get_nota (){
-        $get=  $this->db->get('vnota');
-        if($get->num_rows>0){
+
+    function get_nota() {
+        $get = $this->db->get('vnota');
+        if ($get->num_rows > 0) {
             return $get->result();
         }
     }
@@ -110,14 +110,14 @@ class Kopma extends Model {
 //        $this->db->where('')
 //    }
 
-    function pinjaman_edit($id){
-        $this->db->where('id_pinjaman',$id);
-        $data=$this->db->get('pinjaman');
-        if($data->num_rows > 0){
+    function pinjaman_edit($id) {
+        $this->db->where('id_pinjaman', $id);
+        $data = $this->db->get('pinjaman');
+        if ($data->num_rows > 0) {
             return $data->result();
         }
     }
-    
+
     function pinjaman_update($pinjaman) {
         $this->db->where('id_pinjaman', $pinjaman['id_pinjaman']);
         $this->db->update('pinjaman', $pinjaman);
@@ -141,18 +141,19 @@ class Kopma extends Model {
     }
 
     function get_simpanan($config) {
-        $this->db->order_by('id_simpanan', 'desc');
-        $get = $this->db->get('vsimpanan', $config['per_page'], $config['uri']);
+        $this->db->order_by('id_nota', 'desc');
+        $this->db->group_by('id_nota');
+        $get = $this->db->get('vnota', $config['per_page'], $config['uri']);
         if ($get->num_rows > 0) {
             return $get->result();
         }
     }
-    
-    function getSimpanan(){
-      $get=  $this->db->get('vsimpanan');
-      if($get->num_rows > 0){
-          return $get->result();
-      }
+
+    function getSimpanan() {
+        $get = $this->db->get('vsimpanan');
+        if ($get->num_rows > 0) {
+            return $get->result();
+        }
     }
 
     function get_simpanan_pokok() {
@@ -287,10 +288,10 @@ class Kopma extends Model {
             return $data->result();
         }
     }
-    
-    function get_vangsuran(){
-        $get=$this->db->get('vangsuran');
-        if($get->num_rows>0){
+
+    function get_vangsuran() {
+        $get = $this->db->get('vangsuran');
+        if ($get->num_rows > 0) {
             return $get->result();
         }
     }
@@ -474,7 +475,19 @@ class Kopma extends Model {
         $this->db->where('id_jenis_simpanan', $simpanan['id_jenis_simpanan']);
         $this->db->update('jenis_simpanan', $simpanan);
     }
-    
+
+    function notaDetail($id) {
+        $this->db->where('id_nota', $id);
+        $data = $this->db->get('vnota');
+        if ($data->num_rows() > 0) {
+            return $data->result();
+        }
+    }
+
+    function notaDel($id) {
+        $this->db->where('id_nota', $id);
+        $this->db->delete('nota_simpanan');
+    }
 
 }
 ?>  
