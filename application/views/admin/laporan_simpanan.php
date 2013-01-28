@@ -28,4 +28,5 @@
     </table>
     <?php echo $this->pagination->create_links(); ?>
     <a href='toExcelAllSimpanan'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> Rekap</a>
+    <a href='pdf_laporan_Simpanan'><img src="<?php echo base_url() ?>assets/img/pdf-icon.png" width="18" height="18" border="0"/> Rekap Pdf</a>
 </div><!--/row-->

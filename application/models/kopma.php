@@ -103,6 +103,14 @@ class Kopma extends Model {
 //        $this->db->where('')
 //    }
 
+    function pinjaman_edit($id){
+        $this->db->where('id_pinjaman',$id);
+        $data=$this->db->get('pinjaman');
+        if($data->num_rows > 0){
+            return $data->result();
+        }
+    }
+    
     function pinjaman_update($pinjaman) {
         $this->db->where('id_pinjaman', $pinjaman['id_pinjaman']);
         $this->db->update('pinjaman', $pinjaman);
@@ -132,6 +140,13 @@ class Kopma extends Model {
             return $get->result();
         }
     }
+    
+    function getSimpanan(){
+      $get=  $this->db->get('vsimpanan');
+      if($get->num_rows > 0){
+          return $get->result();
+      }
+    }
 
     function get_simpanan_pokok() {
         $get = $this->db->get('vsimpanan_pokok');
@@ -139,7 +154,7 @@ class Kopma extends Model {
             return $get->result();
         }
     }
-    
+
     function simpanan_pokok_edit($id) {
         $this->db->where('id_simpanan', $id);
         $data = $this->db->get('simpanan');
@@ -147,16 +162,14 @@ class Kopma extends Model {
             return $data->result();
         }
     }
-    
-    
-    
+
     function get_simpanan_wajib() {
         $get = $this->db->get('vsimpanan_wajib');
         if ($get->num_rows > 0) {
             return $get->result();
         }
     }
-    
+
     function simpanan_wajib_edit($id) {
         $this->db->where('id_simpanan', $id);
         $data = $this->db->get('simpanan');
@@ -164,7 +177,7 @@ class Kopma extends Model {
             return $data->result();
         }
     }
-    
+
     function simpanan_edit($id) {
         $this->db->where('id_simpanan', $id);
         $data = $this->db->get('simpanan');
@@ -173,7 +186,6 @@ class Kopma extends Model {
         }
     }
 
-    //belum fixx
     function simpanan_update($simpanan) {
         $this->db->where('id_simpanan', $simpanan['id_simpanan']);
         $this->db->update('simpanan', $simpanan);
@@ -219,8 +231,8 @@ class Kopma extends Model {
             return $query->result();
         }
     }
-    
-      function cari_anggota() {
+
+    function cari_anggota() {
         $c = $this->input->post('cari');
         $this->db->like('nia', $c);
         $query = $this->db->get('anggota');
@@ -268,6 +280,13 @@ class Kopma extends Model {
             return $data->result();
         }
     }
+    
+    function get_vangsuran(){
+        $get=$this->db->get('vangsuran');
+        if($get->num_rows>0){
+            return $get->result();
+        }
+    }
 
     function cari_angsuran() {
         $c = $this->input->post('cari');
@@ -286,7 +305,7 @@ class Kopma extends Model {
             return $query->result();
         }
     }
-    
+
     function angsuran_tambah($data) {
         $this->db->insert('angsuran', $data);
     }
@@ -379,7 +398,7 @@ class Kopma extends Model {
             return $get->result();
         }
     }
-    
+
     function toExcelAllSimpanan() {
         $get = $this->db->get('vsimpanan');
         if ($get->num_rows > 0) {
@@ -387,13 +406,13 @@ class Kopma extends Model {
         }
     }
 
-      function toExcelAllPinjaman() {
+    function toExcelAllPinjaman() {
         $get = $this->db->get('vpinjaman');
         if ($get->num_rows > 0) {
             return $get->result();
         }
     }
-    
+
     function getUser($c) {
         $this->db->where('nia', $c);
         $data = $this->db->get('vpinjaman');
@@ -438,6 +457,17 @@ class Kopma extends Model {
         $data = $this->db->get('simpanan');
         return $data->num_rows();
     }
+
+    function simpananPokokupdate($simpanan) {
+        $this->db->where('id_jenis_simpanan', $simpanan['id_jenis_simpanan']);
+        $this->db->update('jenis_simpanan', $simpanan);
+    }
+
+    function simpananWajibupdate($simpanan) {
+        $this->db->where('id_jenis_simpanan', $simpanan['id_jenis_simpanan']);
+        $this->db->update('jenis_simpanan', $simpanan);
+    }
+    
 
 }
 ?>  

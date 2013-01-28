@@ -32,11 +32,11 @@ $this->fpdf->SetFont('Times','B',10);
 /* Kita akan membuat header dari halaman pdf yang kita buat
    -------------- Header Halaman dimulai dari baris ini -----------------------------
 */
-$this->fpdf->Cell(19,0.7,'LAPORAN ANGGOTA',0,0,'C');
+$this->fpdf->Cell(40,0.7,'LAPORAN ANGGOTA',0,0,'C');
  
 // fungsi Ln untuk membuat baris baru
 $this->fpdf->Ln();
-$this->fpdf->Cell(19,0.7,'KOPERASI SIMPAN PINJAM KOPMA UGM',0,0,'C');
+$this->fpdf->Cell(40,0.7,'KOPERASI SIMPAN PINJAM KOPMA UGM',0,0,'C');
  
 $this->fpdf->Ln();
 /* Setting ulang Font : String Family, String Style, Font size
@@ -49,41 +49,51 @@ $this->fpdf->Ln();
    yang artinya string stylenya normal / tidak Bold dan ukurannya 10
 */
 $this->fpdf->SetFont('helvetica','',10);
-$this->fpdf->Cell(19,0.5,'Bulaksumur H-7 & H-8 Depok Sleman Yogyakarta 55281',0,0,'C');
+$this->fpdf->Cell(40,0.5,'Bulaksumur H-7 & H-8 Depok Sleman Yogyakarta 55281',0,0,'C');
  
 $this->fpdf->Ln();
-$this->fpdf->Cell(15,0.5,'Telp. (0274)565774, 519943; Fax. (0274) 566171',0,0,'C');
+$this->fpdf->Cell(40,0.5,'Telp. (0274)565774, 519943; Fax. (0274) 566171',0,0,'C');
 /* Fungsi Line untuk membuat garis */
-$this->fpdf->Line(1,3.5,20,3.5);
-$this->fpdf->Line(1,3.55,20,3.55);
+$this->fpdf->Line(20,3.5,20,3.5);
+$this->fpdf->Line(30,3.55,20,3.55);
  
 /* -------------- Header Halaman selesai ------------------------------------------------*/
  
 $this->fpdf->Ln(1);
 $this->fpdf->SetFont('Times','B',12);
-$this->fpdf->Cell(19,1,'LAPORAN DATA ANGGOTA',0,0,'C');
+$this->fpdf->Cell(40,1,'LAPORAN DATA ANGGOTA',0,0,'C');
  
  
 /* setting header table */
 $this->fpdf->Ln(1);
 $this->fpdf->SetFont('Times','B',11);
-$this->fpdf->Cell(1  , 1, 'NIA' , 1, 'LR', 'C');
-$this->fpdf->Cell(4 , 1, 'NO KTP' , 1, 'LR', 'L');
-$this->fpdf->Cell(3 , 1, 'NAMA' , 1, 'LR', 'L');
-$this->fpdf->Cell(5 , 1, 'Tempat Lahir' , 1, 'LR', 'L');
-$this->fpdf->Cell(3 , 1, 'Tanggal Lahir' , 1, 'LR', 'L');
-$this->fpdf->Cell(13 , 1, 'Alamat lengkap' , 1, 'LR', 'L');
+$this->fpdf->Cell(2  , 1, 'NIA' , 1, 'LR', 'C');
+$this->fpdf->Cell(4 , 1, 'NO KTP' , 1, 'LR', 'C');
+$this->fpdf->Cell(5 , 1, 'NAMA' , 1, 'LR', 'C');
+$this->fpdf->Cell(3 , 1, 'Tempat Lahir' , 1, 'LR', 'C');
+$this->fpdf->Cell(3 , 1, 'Tanggal Lahir' , 1, 'LR', 'C');
+$this->fpdf->Cell(8 , 1, 'Alamat lengkap' , 1, 'LR', 'C');
+$this->fpdf->Cell(3 , 1, 'HP' , 1, 'LR', 'C');
+$this->fpdf->Cell(3 , 1, 'Jenis kelamin' , 1, 'LR', 'C');
+$this->fpdf->Cell(2 , 1, 'Status' , 1, 'LR', 'C');
+$this->fpdf->Cell(3 , 1, 'Jenis Anggota' , 1, 'LR', 'C');
+$this->fpdf->Cell(4 , 1, 'Tanggal Masuk' , 1, 'LR', 'C');
 /* generate hasil query disini */
 foreach($hasil as $data)
 {
     $this->fpdf->Ln();
     $this->fpdf->SetFont('Times','',12);
-    $this->fpdf->Cell(6  , 0.7, $data->nia  , 1, 'LR', 'L');
-    $this->fpdf->Cell(6 , 0.7, $data->no_ktp , 1, 'LR', 'L');
-    $this->fpdf->Cell(13 , 0.7, $data->nama , 1, 'LR', 'L');
-    $this->fpdf->Cell(13 , 0.7, $data->tempat_lahir , 1, 'LR', 'L');
-    $this->fpdf->Cell(13 , 0.7, $data->tgl_lahir , 1, 'LR', 'L');
-    $this->fpdf->Cell(13 , 0.7, $data->alamat_lengkap , 1, 'LR', 'L');
+    $this->fpdf->Cell(2  , 0.7, $data->nia  , 1, 'LR', 'L');
+    $this->fpdf->Cell(4 , 0.7, $data->no_ktp , 1, 'LR', 'L');
+    $this->fpdf->Cell(5 , 0.7, $data->nama , 1, 'LR', 'L');
+    $this->fpdf->Cell(3 , 0.7, $data->tempat_lahir , 1, 'LR', 'L');
+    $this->fpdf->Cell(3 , 0.7, $data->tgl_lahir , 1, 'LR', 'L');
+    $this->fpdf->Cell(8 , 0.7, $data->alamat_lengkap , 1, 'LR', 'L');
+    $this->fpdf->Cell(3 , 0.7, $data->hp , 1, 'LR', 'L');
+    $this->fpdf->Cell(3 , 0.7, $data->jenis_kelamin , 1, 'LR', 'L');
+    $this->fpdf->Cell(2 , 0.7, $data->status , 1, 'LR', 'L');
+    $this->fpdf->Cell(3 , 0.7, $data->jenis_anggota , 1, 'LR', 'L');
+    $this->fpdf->Cell(4 , 0.7, $data->tanggal_masuk , 1, 'LR', 'L');
 }
 /* setting posisi footer 3 cm dari bawah */
 $this->fpdf->SetY(-3);

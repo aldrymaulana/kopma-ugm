@@ -73,6 +73,22 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
+    
+    function detail_pinjaman(){
+
+        $id= $this->uri->segment(3);
+         if($this->kopma->getPinjaman($id)){
+            $data['pinjaman'] = $this->kopma->getPinjaman($id);
+        }else {
+            $data['pinjaman'] = array();
+        }
+
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/detail_pinjaman', $data);
+        $this->load->view('template/footer');
+    }
+    
     function detail_anggota() {
         $nia = $this->uri->segment(3);
         if ($this->kopma->get_anggota_nia($nia)) {
@@ -833,12 +849,12 @@ class Admin extends Controller {
         }
     }
 
-    function scari_angsuran_form() {
-        $this->load->view('template/header');
-        $this->load->view('admin/menu');
-        $this->load->view('admin/cari_angsuran');
-        $this->load->view('template/footer');
-    }
+//    function scari_angsuran_form() {
+//        $this->load->view('template/header');
+//        $this->load->view('admin/menu');
+//        $this->load->view('admin/cari_angsuran');
+//        $this->load->view('template/footer');
+//    }
 
     function form_angsuran() {
         $id = $this->uri->segment(3);
@@ -955,7 +971,7 @@ class Admin extends Controller {
     function laporan_pinjaman() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/pinjaman/';
         $config['total_rows'] = $this->kopma->cPinjaman();
-        $config['per_page'] = 10;
+        $config['per_page'] = 15;
         $config['num_links'] = 1;
         $config['uri'] = $this->uri->segment(3);
         $this->pagination->initialize($config);
@@ -1138,7 +1154,7 @@ class Admin extends Controller {
 //            return $result;
 //        }
 
-    function pdf() {
+    function pdf_anggota() {
         // Load library FPDF
         $this->load->library('fpdf');
 
@@ -1165,6 +1181,120 @@ class Admin extends Controller {
         $this->load->view('admin/pdf_report', $data);
     }
 
+        function pdf_detail_pinjaman() {
+        // Load library FPDF
+        $this->load->library('fpdf');
+        // Load Database
+        $this->load->database();
+
+        /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
+          dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+          perhatikan baris $config['fonts_path']= 'system/fonts/';
+          didalam file application/config/config.php
+         */
+        define('FPDF_FONTPATH', $this->config->item('fonts_path'));
+
+        // Load model "karyawan_model"
+        $this->load->model('kopma');
+
+        /* Kita akses function get_all didalam karyawan_model
+          function get_all merupakan fungsi yang dibuat untuk mengambil
+          seluruh data karyawan didalam database.
+         */
+        $id=$this->uri->segment(3);
+        $data['pinjaman'] = $this->kopma->getPinjaman($id);
+
+        // Load view "pdf_report" untuk menampilkan hasilnya       
+        $this->load->view('admin/pdf_detail_pinjaman', $data);
+    }
+
+
+     function pdf_laporan_pinjaman() {
+        // Load library FPDF
+        $this->load->library('fpdf');
+        // Load Database
+        $this->load->database();
+
+        /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
+          dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+          perhatikan baris $config['fonts_path']= 'system/fonts/';
+          didalam file application/config/config.php
+         */
+        define('FPDF_FONTPATH', $this->config->item('fonts_path'));
+
+        // Load model "karyawan_model"
+        $this->load->model('kopma');
+
+        /* Kita akses function get_all didalam karyawan_model
+          function get_all merupakan fungsi yang dibuat untuk mengambil
+          seluruh data karyawan didalam database.
+         */
+
+        $data['pinjaman'] = $this->kopma->get_pinjaman();
+
+        // Load view "pdf_report" untuk menampilkan hasilnya       
+        $this->load->view('admin/pdf_laporan_pinjaman', $data);
+    }
+     
+    
+    function pdf_laporan_angsuran(){
+        // Load library FPDF
+        $this->load->library('fpdf');
+        // Load Database
+        $this->load->database();
+
+        /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
+          dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+          perhatikan baris $config['fonts_path']= 'system/fonts/';
+          didalam file application/config/config.php
+         */
+        define('FPDF_FONTPATH', $this->config->item('fonts_path'));
+
+        // Load model "karyawan_model"
+        $this->load->model('kopma');
+
+        /* Kita akses function get_all didalam karyawan_model
+          function get_all merupakan fungsi yang dibuat untuk mengambil
+          seluruh data karyawan didalam database.
+         */
+
+        $data['angsuran'] = $this->kopma->get_vangsuran();
+
+        // Load view "pdf_report" untuk menampilkan hasilnya       
+        $this->load->view('admin/pdf_laporan_angsuran', $data);
+    }
+     
+    
+    function pdf_laporan_simpanan() {
+        // Load library FPDF
+        $this->load->library('fpdf');
+        // Load Database
+        $this->load->database();
+
+        /* buat konstanta dengan nama FPDF_FONTPATH, kemudian kita isi value-nya
+          dengan alamat penyimpanan FONTS yang sudah kita definisikan sebelumnya.
+          perhatikan baris $config['fonts_path']= 'system/fonts/';
+          didalam file application/config/config.php
+         */
+        define('FPDF_FONTPATH', $this->config->item('fonts_path'));
+
+        // Load model "karyawan_model"
+        $this->load->model('kopma');
+
+        /* Kita akses function get_all didalam karyawan_model
+          function get_all merupakan fungsi yang dibuat untuk mengambil
+          seluruh data karyawan didalam database.
+         */
+
+        $data['angsuran'] = $this->kopma->getSimpanan();
+
+        // Load view "pdf_report" untuk menampilkan hasilnya       
+        $this->load->view('admin/pdf_laporan_simpanan', $data);
+        
+        
+    }
+
+    
     function saldo() {
         $config['base_url'] = $this->config->config['base_url'] . '/index.php/admin/saldo/';
         $config['total_rows'] = $this->kopma->cSaldo();
@@ -1219,6 +1349,72 @@ class Admin extends Controller {
         $this->load->dbutil();
         $backup = & $this->dbutil->backup();
         force_download($name, $backup);
+    }
+
+    function simpananPokokedit($id) {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->get_simpanan_pokok()) {
+            $data['jenis'] = $this->kopma->get_simpanan_pokok();
+        } else {
+            $data['jenis'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/simpananPokokedit', $data);
+        $this->load->view('template/footer');
+    }
+
+    function simpananPokokupdate($simpanan) {
+        $this->form_validation->set_rules('id_jenis_simpanan', 'Id Jenis Simpanan', 'required');
+        $this->form_validation->set_rules('jenis_simpanan', 'Jenis Simpanan', 'required');
+        $this->form_validation->set_rules('value', 'Value', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header');
+            $this->load->view('admin/menu');
+            $this->load->view('admin/simpananPokokedit');
+            $this->load->view('template/footer');
+        } else {
+            $simpanan = array(
+                'id_jenis_simpanan' => $this->input->post('id_jenis_simpanan'),
+                'jenis_simpanan' => $this->input->post('jenis_simpanan'),
+                'value' => $this->input->post('value')
+            );
+            $this->kopma->simpananPokokupdate($simpanan);
+            redirect('admin/simpanan_pokok');
+        }
+    }
+
+    function simpananWajibedit($id) {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->get_simpanan_wajib()) {
+            $data['jenis'] = $this->kopma->get_simpanan_wajib();
+        } else {
+            $data['jenis'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/simpananWajibedit', $data);
+        $this->load->view('template/footer');
+    }
+
+    function simpananWajibupdate($simpanan) {
+        $this->form_validation->set_rules('id_jenis_simpanan', 'Id Jenis Simpanan', 'required');
+        $this->form_validation->set_rules('jenis_simpanan', 'Jenis Simpanan', 'required');
+        $this->form_validation->set_rules('value', 'Value', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header');
+            $this->load->view('admin/menu');
+            $this->load->view('admin/simpananWajibedit');
+            $this->load->view('template/footer');
+        } else {
+            $simpanan = array(
+                'id_jenis_simpanan' => $this->input->post('id_jenis_simpanan'),
+                'jenis_simpanan' => $this->input->post('jenis_simpanan'),
+                'value' => $this->input->post('value')
+            );
+            $this->kopma->simpananWajibupdate($simpanan);
+            redirect('admin/simpanan_wajib');
+        }
     }
 
 }

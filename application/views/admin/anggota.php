@@ -52,5 +52,5 @@
     <button type="submit" class="btn">download</button>
     <?php echo form_close(); ?>
 
-    <a href='pdf'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
+    <a href='pdf_anggota'><img src="<?php echo base_url() ?>assets/img/excel-icon.jpeg" width="18" height="18" border="0"/> pdf</a>
 </div>

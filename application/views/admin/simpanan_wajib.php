@@ -19,7 +19,7 @@
     <td><center><?php echo $simp->value ?></center></td>
 <td>
                     <center> <?php
-            echo anchor('admin/simpanan_pokok_wajib/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
+            echo anchor('admin/simpananWajibedit/' . $simp->id_jenis_simpanan, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
                 ?></center>
             </td>
                 </tr>
