@@ -1010,7 +1010,7 @@ class Admin extends Controller {
         $data = array(
             'notaId' => $last[0]->id_nota
         );
-        $notaId = $this->session->set_userdata($data);
+        $this->session->set_userdata($data);
         foreach ($bulan as $bln) {
             $cek = $this->kopma->cekWajib($nia, $bln, $thn);
             if ($cek > 0) {
