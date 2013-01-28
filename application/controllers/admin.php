@@ -999,13 +999,25 @@ class Admin extends Controller {
         $jenis = $this->input->post('simpanan');
         $bulan = $this->input->post('bln');
         $thn = date('Y');
+        $nota = array(
+            'nia' => $nia,
+            'username' => $this->session->userdata('username')
+        );
+        $this->kopma->notaInsert($nota);
+        $last = $this->kopma->lastInsert();
+        print_r($last);
+        echo $last[0]->id_nota;
+        $data = array(
+            'notaId' => $last[0]->id_nota
+        );
+        $notaId = $this->session->set_userdata($data);
         foreach ($bulan as $bln) {
             $cek = $this->kopma->cekWajib($nia, $bln, $thn);
             if ($cek > 0) {
                 redirect('admin/sudahBayarWajib');
             } else {
                 $post = array(
-                    'nia' => $nia,
+                    'id_nota' => $this->session->userdata('notaId'),
                     'id_jenis_simpanan' => $jenis,
                     'bulan' => $bln,
                     'tahun' => $thn
@@ -1013,6 +1025,7 @@ class Admin extends Controller {
                 $this->kopma->simpananWajibSave($post);
             }
         }
+        $this->session->unset_userdata('notaId');
         redirect('admin/simpanan');
     }
 
@@ -1020,14 +1033,20 @@ class Admin extends Controller {
         $nia = $this->input->post('nia');
         $jenis = $this->input->post('simpanan');
         $tahun = date('Y');
-        $cek = $this->kopma->cekPokok($nia, $jenis, $tahun);
+        $cek = $this->kopma->cekPokok($nia, $jenis);
         if ($cek > 0) {
             redirect('admin/sudahBayarPokok');
         } else {
-            $post = array(
+            $nota = array(
                 'nia' => $nia,
+                'username' => $this->session->userdata('username')
+            );
+            $this->kopma->notaInsert($nota);
+            $max = $this->kopma->lastInsert();
+            $post = array(
+                'id_nota' => $max[0]->id_nota,
                 'id_jenis_simpanan' => $jenis,
-                'bulan' => 0,
+                'bulan' => null,
                 'tahun' => $tahun
             );
             $this->kopma->simpananWajibSave($post);
@@ -1418,6 +1437,26 @@ class Admin extends Controller {
         $id = $this->uri->segment(3);
         $this->kopma->notaDel($id);
         redirect('admin/simpanan');
+    }
+
+    function transaksiDel() {
+        $id = $this->uri->segment(3);
+        $n = $this->kopma->notaId($id);
+        $this->kopma->transaksiDel($id);
+        redirect('admin/notaDetail/' . $n->id_nota);
+    }
+
+    function transaksiEdit() {
+        $id = $this->uri->segment(3);
+        if ($this->kopma->transaksiEdit($id)) {
+            $data['transaksi'] = $this->kopma->transaksiEdit($id);
+        } else {
+            $data['transaksi'] = array();
+        }
+        $this->load->view('template/header');
+        $this->load->view('admin/menu');
+        $this->load->view('admin/transaksiEdit', $data);
+        $this->load->view('template/footer');
     }
 
 }

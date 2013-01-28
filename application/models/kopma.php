@@ -342,7 +342,7 @@ class Kopma extends Model {
         $this->db->where('tahun', $thn);
         $this->db->order_by('bulan');
         $this->db->order_by('tahun');
-        $data = $this->db->get('simpanan');
+        $data = $this->db->get('vnota');
         if ($data->num_rows > 0) {
             return $data->result();
         }
@@ -352,15 +352,14 @@ class Kopma extends Model {
         $this->db->where('bulan', $bln);
         $this->db->where('tahun', $thn);
         $this->db->where('nia', $nia);
-        $data = $this->db->get('simpanan');
+        $data = $this->db->get('vnota');
         return $data->num_rows();
     }
 
-    function cekPokok($nia, $jenis, $tahun) {
+    function cekPokok($nia, $jenis) {
         $this->db->where('nia', $nia);
         $this->db->where('id_jenis_simpanan', $jenis);
-        $this->db->where('tahun', $tahun);
-        $data = $this->db->get('simpanan');
+        $data = $this->db->get('vnota');
         return $data->num_rows();
     }
 
@@ -487,6 +486,38 @@ class Kopma extends Model {
     function notaDel($id) {
         $this->db->where('id_nota', $id);
         $this->db->delete('nota_simpanan');
+    }
+
+    function notaId($id) {
+        $this->db->select('id_nota');
+        $this->db->where('id_simpanan', $id);
+        $data = $this->db->get('simpanan');
+        if ($data->num_rows() > 0) {
+            return $data->row();
+        }
+    }
+
+    function transaksiDel($id) {
+        $this->db->where('id_simpanan', $id);
+        $this->db->delete('simpanan');
+    }
+
+    function transaksiEdit($id) {
+        $this->db->where('id_simpanan', $id);
+        $data = $this->db->get('vnota');
+        if ($data->num_rows > 0) {
+            return $data->result();
+        }
+    }
+
+    function notaInsert($nota) {
+        $this->db->insert('nota_simpanan', $nota);
+    }
+
+    function lastInsert() {
+        $this->db->select_max('id_nota');
+        $data = $this->db->get('nota_simpanan');
+        return $data->result();
     }
 
 }

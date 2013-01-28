@@ -24,7 +24,7 @@
             <td><?php echo $smp->nama ?></td>
             <td><center><?php echo $smp->tanggal ?></center></td>
             <td><center><?php echo $smp->username ?></center></td>
-            <td><center><?php echo anchor('', 'Edit') ?> | <?php echo anchor('admin/notaDel/' . $smp->id_nota, 'Delete') ?></center></td>
+            <td><center><?php echo anchor('admin/notaDel/' . $smp->id_nota, '<i class="icon-remove tool"></i>') ?></center></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

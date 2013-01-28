@@ -22,7 +22,7 @@
             <td><center><?php echo $smp->jenis_simpanan ?></center></td>
             <td><center><?php echo $smp->bulan ?></center></td>
             <td><center><?php echo $smp->tahun ?></center></td>
-            <td><center><?php echo anchor('as/' . $smp->id_simpanan, 'Edit') ?></center></td>
+    <td><center><?php echo anchor('admin/TransaksiEdit/' . $smp->id_simpanan, '<i class="icon-pencil tool"></i>') ?> | <?php echo anchor('admin/TransaksiDel/'.$smp->id_simpanan,'<i class="icon-remove tool"></i>')?></center></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
