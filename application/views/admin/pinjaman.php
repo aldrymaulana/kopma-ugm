@@ -37,7 +37,9 @@
                 <?php
                 echo anchor('admin/pinjaman_edit/' . $pnj->id_pinjaman, '<i class="icon-pencil tool"></i>', 'alt="Edit"');
                 echo ' | ';
-                echo anchor('admin/pinjaman_hapus/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="Hapus"')
+                echo anchor('admin/pinjaman_hapus/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="Hapus"');
+                echo ' | ';
+                echo anchor('admin/pdf_detail_pinjaman/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="rekap"')
                 ?></center>
             </td>
             </tr>

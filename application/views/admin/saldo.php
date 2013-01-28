@@ -8,19 +8,23 @@
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-                <th>Nia</th>
-                <th>Nama</th>
-                <th>Saldo</th>
-            </tr>
+                <th><center>#</center></th>      
+        <th><center>Nia</center></th>
+        <th><center>Nama</center></th>
+        <th><center>Saldo</center></th>
+        </tr>
         </thead>
         <tbody>
+            <?php $no = 1 ?>
             <?php foreach ($saldo as $data) : ?>
                 <tr>
-                    <td><?php echo $data->nia ?></td>
-                    <td><?php echo $data->nama ?></td>
-                    <td><?php echo $data->saldo ?></td>
-                </tr>
-            <?php endforeach; ?>
+                    <td><center><?php echo $no ?></center></td>
+            <td><center><?php echo $data->nia ?></center></td>
+            <td><center><?php echo $data->nama ?></center></td>
+            <td><center><?php echo $data->saldo ?></center></td>
+            </tr>
+            <?php $no++ ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
     <?php echo $this->pagination->create_links(); ?>
