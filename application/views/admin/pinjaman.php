@@ -21,7 +21,7 @@
             <?php $no = 1; ?>
             <?php foreach ($pinjaman as $pnj) : ?>
                 <tr>
-                    <td><center><a href="<?php echo site_url() ?>/admin/detail_pinjaman/<?php echo $pnj->id_pinjaman ?>"><?php echo $pnj->id_pinjaman ?></a></center></td>
+                    <td><center><?php echo $pnj->id_pinjaman ?></a></center></td>
             <td><center><?php echo $pnj->nia ?></center></td>
             <td><center><?php echo $pnj->nama ?></center></td>
             <td><center><?php echo $pnj->value ?></center></td>
@@ -39,7 +39,7 @@
                 echo ' | ';
                 echo anchor('admin/pinjaman_hapus/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="Hapus"');
                 echo ' | ';
-                echo anchor('admin/pdf_detail_pinjaman/' . $pnj->id_pinjaman, '<i class="icon-remove tool"></i>', 'alt="rekap"')
+                echo anchor('admin/pdf_detail_pinjaman/' . $pnj->id_pinjaman, '<i class="icon-file tool"></i>', 'alt="rekap"')
                 ?></center>
             </td>
             </tr>
