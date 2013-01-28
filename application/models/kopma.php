@@ -42,6 +42,13 @@ class Kopma extends Model {
             return $get->result();
         }
     }
+    
+    function get_nota (){
+        $get=  $this->db->get('vnota');
+        if($get->num_rows>0){
+            return $get->result();
+        }
+    }
 
     function anggota_tambah($data) {
         $this->db->insert('anggota', $data);

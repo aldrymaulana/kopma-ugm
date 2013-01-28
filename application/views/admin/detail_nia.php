@@ -92,7 +92,7 @@
                             <label class="control-label" for="input01">Status Perkawinan</label>
                             <div class="controls">
                                 <select class="input-xlarge" name="id_perkawinan">
-                                    <option><?php echo $nia[0]->status_perkawinan ?></option>
+                                    <option value="<?php echo $nia[0]->id_perkawinan ?>"><?php echo $nia[0]->status_perkawinan ?></option>
                                     <option></option>
                                     <?php foreach ($kawin as $data) : ?>
                                         <option value="<?php echo $data->id_perkawinan ?>"><?php echo $data->status_perkawinan ?></option>
@@ -106,7 +106,7 @@
                             <label class="control-label" for="input01">Status Pendidikan</label>
                             <div class="controls">
                                 <select class="input-xlarge" name="id_pendidikan">
-                                    <option><?php echo $nia[0]->status_pendidikan ?></option>
+                                    <option value="<?php echo $nia[0]->id_pendidikan ?>"><?php echo $nia[0]->status_pendidikan ?></option>
                                     <option></option>
                                     <?php foreach ($pendidikan as $pen) : ?>
                                         <option value="<?php echo $pen->id_pendidikan ?>"><?php echo $pen->status_pendidikan ?></option>

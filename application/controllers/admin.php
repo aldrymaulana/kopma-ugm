@@ -33,14 +33,7 @@ class Admin extends Controller {
         $this->load->view('template/footer');
     }
 
-//    $config['base_url'] = 'http://localhost/simades/index.php/admin/pekerjaan/';
-//        $config['total_rows'] = $this->simades->get_pek();
-//        $config['per_page'] = 10;
-//        $config['num_links'] = 3;
-//        $config['uri'] = $this->uri->segment(3);
-//        $this->pagination->initialize($config);
-//        $data['pkj'] = $this->simades->get_pekerjaan($config);
-//        
+
 
     function cari_anggota() {
 

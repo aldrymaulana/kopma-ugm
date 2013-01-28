@@ -14,7 +14,7 @@
         <th><center>Jenis Simpanan</center></th>
         <th><center>Bulan Bayar</center></th>
         <th><center>Tahun</center></th>
-        <th><center>Tanggal Transaksi</center></th>
+
         <th><center>Action</center></th>
         </tr>
         </thead>
@@ -27,7 +27,7 @@
             <td><center><?php echo $smp->jenis_simpanan ?></center></td>
             <td><center><?php echo $smp->bulan ?></center></td>
             <td><center><?php echo $smp->tahun ?></center></td>
-            <td><center><?php echo $smp->tanggal ?></center></td>
+
             <td>
             <center>
                 <?php
